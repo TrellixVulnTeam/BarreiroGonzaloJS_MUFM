@@ -63,18 +63,6 @@ console.log("Inicio de sesión")
     //}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 const titulo = document.getElementById("titulo")
 console.log(titulo.innerText)
 
@@ -89,10 +77,9 @@ console.log(welcome.innerText)
 const usuario = prompt('Ingrese su nombre')
 welcome.innerText = "Hi " + usuario + "! Welcome to UKE BJJ "
 
-
-
-
-
+const contadorCarrito = document.querySelector('#contadorCarrito')
+const btnVaciar = document.getElementById('vaciarCarrito')
+const carritoContenedor = document.querySelector('#carrito-contenedor')
 
 
 
@@ -102,7 +89,7 @@ const BBDD = [
         "nombre": "Kingz - Gi - White",
         "descripcion": "Pursue the Gentle Art",
         "img": "images/kingzwhite.webp",
-        "precio": "$100",
+        "precio": "100",
         "cantidad": 1
     },
     {
@@ -232,7 +219,6 @@ function renderizarproductos (){
     filtro.innerHTML = `
     
     <button class="btn btn-warning mb-5 ms-3" onClick="filtroPrecio()">Filtrar mayor 120</button>
-
     
     `
 
@@ -243,7 +229,6 @@ function renderizarproductos (){
       
         `
         <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-
         <div class="card" style="width: 20rem;">
             <img src="${e.img}" class="card-img-top" alt="">
                 <div class="card-body">
@@ -253,7 +238,6 @@ function renderizarproductos (){
                   <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${e.id})">Add to cart</a>
                 </div>
         </div>
-
         </div>
         
         `
@@ -290,6 +274,8 @@ function agregarProductoAlCarrito (id){
 
 function renderizarCarrito (){
 
+    carritoContenedor.innerHTML = ''
+
     let carritoHTML = document.getElementById('carrito');
 
     html = '';
@@ -323,6 +309,8 @@ function renderizarCarrito (){
 
 function calcularTotal (){
 
+    let total = 0
+
     carrito.forEach((producto) => {
 
         total += producto.cantidad * producto.precio;
@@ -353,3 +341,138 @@ const filtroPrecio = () => {
     console.log(bd);
 
 }
+
+const precioTotal = document.querySelector('#precioTotal')
+
+const renderTotal = () => {
+    let total = 0
+    carrito.forEach((producto) => {
+        total += producto.precio
+    })
+
+    precioTotal.innerText = total
+}
+
+
+const vaciarCarrito = () => {
+    carrito.length = 0
+
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
+}
+
+btnVaciar.addEventListener('click', vaciarCarrito)
+
+
+//stockProductos.forEach((producto) => {
+//    const div = document.createElement('div')
+//    div.classList.add('producto')
+//
+//    div.innerHTML = `
+//    <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
+//        <div class="card" style="width: 20rem;">
+//            <img src="${producto.img}" class="card-img-top" alt="">
+//                <div class="card-body">
+//                    <h5 class="card-title text-dark">${producto.nombre}</h5>
+//                    <p class="card-text text-dark">${producto.descripcion}</p>
+//                    <p class="card-text text-dark">${producto.precio}</p>
+//                    <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${producto.id})">Add to cart</a>
+//                </div>
+//        </div>
+//    </div>
+//
+//
+//            `                    
+//
+//    productosContainer.append(div)
+//})
+//
+//const agregarAlCarrito = (id) => {
+//    const item = stockProductos.find( (producto) => producto.id === id)
+//    carrito.push(item)
+//
+//    console.log(carrito)
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//}
+//
+//const removerDelCarrito = (id) => {
+//    const item = carrito.find((producto) => producto.id === id)
+//    const indice = carrito.indexOf(item)
+//    carrito.splice(indice, 1)
+//
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//}
+//
+//const vaciarCarrito = () => {
+//    carrito.length = 0
+//
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//}
+//
+//btnVaciar.addEventListener('click', vaciarCarrito)
+//
+//const renderCarrito = () => {
+//    carritoContenedor.innerHTML = ''
+//
+//    carrito.forEach((item) => {
+//        const div = document.createElement('div')
+//        div.classList.add('productoEnCarrito')
+//
+//        div.innerHTML = `
+//      
+//        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
+//            <div class="card" style="width: 20rem;">
+//                <img src="${producto.img}" class="card-img-top" alt="">
+//                    <div class="card-body">
+//                        <h5 class="card-title text-dark">${producto.nombre}</h5>
+//                        <p class="card-text text-dark">${producto.descripcion}</p>
+//                        <p class="card-text text-dark">${producto.precio}</p>
+//                        <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${producto.id})">Add to cart</a>
+//                    </div>
+//            </div>
+//        </div>
+//                
+//                    `
+//        
+//        carritoContenedor.append(div)
+//    })
+//}
+//
+//const renderCantidad = () => {
+//    contadorCarrito.innerText = carrito.length
+//}
+//
+//const renderTotal = () => {
+//    let total = 0
+//    carrito.forEach((producto) => {
+//        total += producto.precio
+//    })
+//
+//    precioTotal.innerText = total
+//}
+//
+//
+//const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
+//const botonAbrir = document.getElementById('boton-carrito')
+//const botonCerrar = document.getElementById('carritoCerrar')
+//const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
+//
+//botonAbrir.addEventListener('click', ()=>{
+//    contenedorModal.classList.toggle('modal-active')
+//})
+//botonCerrar.addEventListener('click', ()=>{
+//    contenedorModal.classList.toggle('modal-active')
+//})
+//contenedorModal.addEventListener('click', ()=>{
+//    botonCerrar.click()
+//})
+//modalCarrito.addEventListener('click', (event)=>{
+//    event.stopPropagation()
+//})

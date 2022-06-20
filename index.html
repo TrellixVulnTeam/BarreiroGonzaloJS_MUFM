@@ -17,28 +17,28 @@
 <body   class="bg-dark text-white"> <!--pruebaactualización-->
     <section id="header">
         <a href="index.html"><img src="images/icno.webp" class="logo" alt="" width="150%" height="100px"></a>
-    <div class="container-fluid">
-        <ul id="navbar">
-            <li><a href="pages/men.html">Men's</a></li>
-            <li><a href="pages/women.html">Women's</a></li>
-            <li><a href="kids.html">Kids</a></li>
-            <li><a href="accesories.html">Accesories</a></li>
-            <li><a href="sales.html">Sales</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="shopping.html"><img src="images/carrito-de-compras.png"></a></li>
-        </ul>
-    </div>
-
+        <div class="container-fluid">
+            <ul id="navbar">
+                <li><a href="pages/men.html">Men's</a></li>
+                <li><a href="pages/women.html">Women's</a></li>
+                <li><a href="kids.html">Kids</a></li>
+                <li><a href="accesories.html">Accesories</a></li>
+                <li><a href="sales.html">Sales</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><img src="images/carrito-de-compras.png"></a>        <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>            </li>
+            </ul>
+        </div>
     </section>
 
     <h5 id="welcome"><i>Bienvenido</i></h5>
-
-    <div class="container text-center">
-        <h1 id="titulo" class="titulo">UKE BJJ</h1>
-        <h4 class="subtitle">"The gentle art"</h4>
-        <div id="tiempo" class="row"></div>
-    </div>
-
+    
+    <header>
+        <div class="container text-center">
+            <h1 id="titulo" class="titulo">UKE BJJ</h1>
+            <h4 class="subtitle">"The gentle art"</h4>
+            <div id="tiempo" class="row"></div>
+        </div>
+    </header>
    
     <section    class="container mt-5">
         <h3 id ="texto" class="text-center">Gi & No-Gi</h3>
@@ -52,14 +52,13 @@
         </div>
     </section>
 
-    <section    class="container">
+   <section    class="container">
         <div class="row text-center" id="tienda">
 
         </div>
     </section>
 
     <section class="container mt-5">
-        <h1 class="text-center">Carrito de compras</h1>
         <div class="row text-center" id="carrito">
 
         </div>
@@ -68,6 +67,28 @@
         </div>
     </section>
 
+    <!--<main id="contenedor-productos">
+    </main>-->
+
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3 class="text-center">Cart</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+
+               <!--<div class="productoEnCarrito">
+                    <p>Kimono Kingz</p>
+                    <p>Precio: $1200</p>
+                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            -->
+            </div>
+            <div    class="text-center">
+                <p class="precioProducto">Total: $<span id="precioTotal">0</span></p>
+                <button id="vaciarCarrito" class="boton-eliminar">Empty cart</button>
+            </div>
+        </div>
+    </div>
 
 
 
