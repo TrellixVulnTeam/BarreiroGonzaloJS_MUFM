@@ -9,16 +9,18 @@ body {
     justify-content: space-between;
     padding-top: 1%;
     padding-bottom: 2%;
-    padding-right: 3%;
+    padding-right: 4%;
     padding-left: 2%;
     text-decoration: none;
     background-color: white;
+    position: sticky;
 }
 
 #navbar{
     display: flex;
     align-items: flex-end;
     justify-content: space-around;
+    position: sticky;
 }
 
 #navbar li{
@@ -38,3 +40,15 @@ body {
     color: lightblue;
 }
 
+#welcome{
+    padding-top: 1%;
+    padding-left: 2%;
+    text-align: left;
+    font-style: oblique;
+}
+
+.subtitle{
+    font-style: oblique;
+    text-align: center;
+    
+}

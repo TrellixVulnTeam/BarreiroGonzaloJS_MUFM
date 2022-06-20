@@ -1,43 +1,146 @@
+console.log(document)
+console.log(header)
+
+
+console.log("Este es un mensaje en consola")
+console.log("Inicio de sesión")
+
+//let usuario = prompt("Ingrese el usuario")
+//
+//console.log("Ingrese su usuario")
+//console.log(usuario)
+//
+//while (usuario !== "Gonzalo"){
+//    alert('Usuario incorrecto')
+//    usuario = prompt('Ingrese el usuario nuevamente')
+//    
+//}
+//
+//let password = prompt("Ingrese la contraseña")
+//
+//console.log("Ingrese su contraseña")
+//console.log(password)
+//
+//while   (password !== "hola"){
+//    alert('Contraseña incorrecta')
+//    password = prompt('Ingrese la contraseña nuevamente')
+//    alert('Contraseña incorrecta')
+//    password = prompt('Ingrese la contraseña nuevamente')}
+//      if (password === "hola"){
+//        alert('Bienvenido a UKE BJJ') 
+//   } else {}
+
+
+
+    
+        //let pregunta = window.confirm('¿Olvidó su contraseña?');
+             // aceptar -> pregunta de seguridad
+             // cancelar -> volver al inicio de "Ingrese su usuario"
+            
+        //else { 
+   //     (password !== "hola")
+   //         alert("El usuario ingresó "+ entrada)}
+   // }
+        //} else (password !== "hola"){
+        //    
+        //}
+        ////return entrada = prompt("¿Cuál es mi nombre?");
+        
+            // si el usuario coloca 3 veces mal la respuesta, alert "usuario bloqueado"
+
+
+            
+        //if (entrada == "Gonzalo"){
+        //    alert("El usuario ingresó "+ entrada);
+        //    entrada = alert ("Acceso correcto");
+        //}else if (entrada !== "Gonzalo"){
+        //        alert("El usuario ingresó "+ entrada);
+        //        entrada = alert ("Acceso incorrecto");
+        //    } else{
+        //        alert ("Acceso bloqueado")
+        //    }
+        //}
+    //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const titulo = document.getElementById("titulo")
+console.log(titulo.innerText)
+
+console.log(titulo.innerHTML)
+
+const texto = document.getElementById("texto")
+console.log(texto)
+
+const welcome = document.getElementById("welcome")
+console.log(welcome.innerText)
+
+const usuario = prompt('Ingrese su nombre')
+welcome.innerText = "Hi " + usuario + "! Welcome to UKE BJJ "
+
+
+
+
+
+
+
+
 const BBDD = [
     {
         "id": 1,
         "nombre": "Kingz - Gi - White",
-        "descripcion": "Fabricado con tela ripstop para mayor resistencia",
-        "img": "./images/kingzwhite.webp",
-        "precio": 100,
+        "descripcion": "Pursue the Gentle Art",
+        "img": "images/kingzwhite.webp",
+        "precio": "$100",
         "cantidad": 1
     },
     {
         "id": 2,
         "nombre": "Kingz - Gi - White",
-        "img": "./images/kingzwhite2.webp",
+        "descripcion": "The ONE",
+        "img": "images/kingzwhite2.webp",
         "precio": 90,
         "cantidad": 1
     },
     {
         "id": 3,
         "nombre": "Kingz - Gi - Grey",
-        "img": "./images/kingzgrey.webp",
+        "descripcion": "Pursue the Gentle Art",
+        "img": "images/kingzgrey.webp",
         "precio": 200,
         "cantidad": 1
     },
     {
         "id": 4,
-        "nombre": "Kingz - Gi - Green",
-        "img": "./images/kingzgreen.webp",
+        "nombre": "Kingz - Gi - Green Avocado",
+        "descripcion": "Ultralight 2.0",
+        "img": "images/kingzgreen.webp",
         "precio": 150,
         "cantidad": 1
     },
     {
         "id": 5,
         "nombre": "Kingz - Gi - Blue",
-        "img": "./images/kingzblue.webp",
+        "descripcion": "Balistico",
+        "img": "images/kingzblue.webp",
         "precio": 100,
         "cantidad": 1
     },
     {
         "id": 6,
         "nombre": "Kingz - Gi - Black",
+        "descripcion": "Balistico TOTAL BLACK",
         "img": "./images/kingzblack.webp",
         "precio": 140,
         "cantidad": 1
@@ -45,6 +148,7 @@ const BBDD = [
     {
         "id": 7,
         "nombre": "Kingz - Gi - Black",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/blackgirl.webp",
         "precio": 140,
         "cantidad": 1
@@ -52,6 +156,7 @@ const BBDD = [
     {
         "id": 8,
         "nombre": "Kingz - Gi - White",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/whitegirl.webp",
         "precio": 140,
         "cantidad": 1
@@ -59,6 +164,7 @@ const BBDD = [
     {
         "id": 9,
         "nombre": "Kingz - Gi - Blue",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/bluegirl.webp",
         "precio": 140,
         "cantidad": 1
@@ -66,6 +172,7 @@ const BBDD = [
     {
         "id": 10,
         "nombre": "Kingz - Gi - Dark Blue",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/bluemoongirl.webp",
         "precio": 140,
         "cantidad": 1
@@ -73,6 +180,7 @@ const BBDD = [
     {
         "id": 11,
         "nombre": "Koral - No Gi",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/koralycrawoman2.webp",
         "precio": 140,
         "cantidad": 1
@@ -80,6 +188,7 @@ const BBDD = [
     {
         "id": 12,
         "nombre": "Koral - No Gi",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/koralycrawoman.webp",
         "precio": 140,
         "cantidad": 1
@@ -87,6 +196,7 @@ const BBDD = [
     {
         "id": 13,
         "nombre": "Koral - No Gi",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/koralycraman.webp",
         "precio": 140,
         "cantidad": 1
@@ -94,6 +204,7 @@ const BBDD = [
     {
         "id": 14,
         "nombre": "Koral - No Gi",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/koralycraman2.webp",
         "precio": 140,
         "cantidad": 1
@@ -101,6 +212,7 @@ const BBDD = [
     {
         "id": 15,
         "nombre": "Koral - No Gi",
+        "descripcion": "Pursue the Gentle Art",
         "img": "./images/koralycraman3.webp",
         "precio": 140,
         "cantidad": 1
@@ -111,22 +223,6 @@ const carrito = [];
 
 let total = 0;
 
-
-//<div class="card mb-3" style="max-width: 540px;">
-//<div class="row g-0">
-//  <div class="col-md-4">
-//    <img src="${e.img}" class="img-fluid rounded-start" alt="...">
-//  </div>
-//  <div class="col-md-8">
-//    <div class="card-body">
-//      <h5 class="card-title">${e.nombre}</h5>
-//      <p class="card-text text-dark">Kingz Gi for you</p>
-//      <p class="card-text"><small class="text-muted">Kingz</small></p>
-//
-//    </div>
-//  </div>
-//</div>
-//</div>
 
 function renderizarproductos (){
 
