@@ -1,6 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
+    background-color: rgba(12, 11, 11, 0.815);
+    color: white;
 }
 
 #header{
@@ -13,6 +20,8 @@ body {
     padding-left: 2%;
     text-decoration: none;
     background-color: white;
+    position: sticky;
+    z-index: 999;
     position: sticky;
 }
 
@@ -47,9 +56,229 @@ body {
     font-style: oblique;
 }
 
-.subtitle{
+.subtitle {
     font-style: oblique;
     text-align: center;
     
 }
 
+#banner{
+    background-image: url("images/kingzgreen.webp");
+    height: 55vh;
+    width: 100%;
+    /*background-size: cover;*/
+    background-position: 50%;
+    padding: 2% 5%;
+    color: black;
+}
+
+#banner h2{
+    padding-bottom: 1%;
+}
+
+#banner h4{
+    padding-bottom: 0%;
+}
+
+#banner h5{
+    padding-bottom: 1%;
+}
+
+#productos-container {
+    max-width: 1200px;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    max-width: 250%;
+    padding: 2%;
+    margin-bottom: 50px;
+    box-shadow: 1px 1px 6px 3px rgba(236, 233, 233, 0.116);
+    transition: 200ms;
+}
+.producto:hover {
+    box-shadow: 5px 10px 15px 5px rgba(214, 206, 206, 0.3);
+}
+
+.producto img{
+    width: 100%;
+    border-radius: 3%;
+    margin-top: -20px;
+}
+
+/*.section-p1{
+    
+    /*padding: 4% 7%;
+    text-align: center;*/
+/*}
+/*
+/*#productos{
+/*    text-align: center;
+/*}
+/*
+/*#productos .pro-container{
+/*    display: flex;
+/*    justify-content: space-between;
+/*    max-width: 75%;
+/*    padding-top: 2%;
+/*    padding-left: 20%;
+/*    flex-wrap: wrap;
+/*}
+/*
+/*#productos .pro{
+/*    width: 25%;
+/*    min-width: 250px;
+/*    padding: 10px 12px;
+/*    border: 1px solid whitesmoke; 
+/*    border-radius: 5%;
+/*    cursor: pointer;
+/*    box-shadow: 20px 20px 30px rgba(27, 25, 25, 0.615);
+/*    margin: 15px 0;
+/*    transition: 100ms;
+/*    position: relative;
+/*}
+/*
+/*#productos .pro:hover{
+/*    box-shadow: 20px 20px 30px rgba(12, 11, 11, 1.015);
+/*
+/*}
+/*
+/*#productos .pro img{
+/*    width: 100%;
+/*    border-radius: 3%;
+/*}
+/*
+/*#productos .pro .description{
+/*    text-align: center;
+/*    padding: 1% 0;
+/*
+/*}
+/*
+/*#productos .pro .description span{
+/*    color: rgba(240, 248, 255, 0.247);
+/*}
+
+
+/*.contenedor-productos{
+    text-align: center;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+}*/
+
+/*.contenedor-productos .pro-container{
+    justify-content: space-between;
+    padding-top: 2%;
+    flex-wrap: wrap;
+}*/
+
+/*contenedor-productos .pro{
+    /*width: 25%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid whitesmoke;
+    border-radius: 2%;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(17, 16, 16, 0.336);
+    margin-bottom: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    transition: 100ms;
+}*/
+
+/*.contenedor-productos .pro:hover{
+    box-shadow: 20px 20px 30px 10px rgba(17, 16, 16, 0.582);
+
+}
+
+.contenedor-productos .pro img{
+    width: 90%;
+    border-radius: 2%;
+}
+
+.contenedor-productos .pro .description{
+    color: rgba(255, 255, 255, 0.781);
+}
+
+.contenedor-productos .pro .description h3{
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.contenedor-productos .pro .description h5{
+    color: white;
+}*/
+
+
+.modal-contenedor{
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.modal-carrito {
+    position: relative;
+    background-color: white;
+    min-width: 500px;
+    padding: 20px;
+    transition: all .5s;
+}
+
+#carrito-contenedor{
+    max-width: 1200px;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.productoEnCarrito{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 2%;
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+
+footer{
+    background-color: white;
+    color: black;
+    padding-left: 4%;
+    padding-top: 2%;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+footer img{
+    width: 10%;
+    padding-bottom: 2%;
+}
+
+.icon {
+    width: 250%;
+}
+
+.social{
+    margin-right: 5%;
+}

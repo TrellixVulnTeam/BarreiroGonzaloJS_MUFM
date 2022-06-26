@@ -1,95 +1,16 @@
-console.log(document)
-console.log(header)
-
-
-console.log("Este es un mensaje en consola")
-console.log("Inicio de sesión")
-
-//let usuario = prompt("Ingrese el usuario")
-//
-//console.log("Ingrese su usuario")
-//console.log(usuario)
-//
-//while (usuario !== "Gonzalo"){
-//    alert('Usuario incorrecto')
-//    usuario = prompt('Ingrese el usuario nuevamente')
-//    
-//}
-//
-//let password = prompt("Ingrese la contraseña")
-//
-//console.log("Ingrese su contraseña")
-//console.log(password)
-//
-//while   (password !== "hola"){
-//    alert('Contraseña incorrecta')
-//    password = prompt('Ingrese la contraseña nuevamente')
-//    alert('Contraseña incorrecta')
-//    password = prompt('Ingrese la contraseña nuevamente')}
-//      if (password === "hola"){
-//        alert('Bienvenido a UKE BJJ') 
-//   } else {}
 
 
 
-    
-        //let pregunta = window.confirm('¿Olvidó su contraseña?');
-             // aceptar -> pregunta de seguridad
-             // cancelar -> volver al inicio de "Ingrese su usuario"
-            
-        //else { 
-   //     (password !== "hola")
-   //         alert("El usuario ingresó "+ entrada)}
-   // }
-        //} else (password !== "hola"){
-        //    
-        //}
-        ////return entrada = prompt("¿Cuál es mi nombre?");
-        
-            // si el usuario coloca 3 veces mal la respuesta, alert "usuario bloqueado"
-
-
-            
-        //if (entrada == "Gonzalo"){
-        //    alert("El usuario ingresó "+ entrada);
-        //    entrada = alert ("Acceso correcto");
-        //}else if (entrada !== "Gonzalo"){
-        //        alert("El usuario ingresó "+ entrada);
-        //        entrada = alert ("Acceso incorrecto");
-        //    } else{
-        //        alert ("Acceso bloqueado")
-        //    }
-        //}
-    //}
-
-
-const titulo = document.getElementById("titulo")
-console.log(titulo.innerText)
-
-console.log(titulo.innerHTML)
-
-const texto = document.getElementById("texto")
-console.log(texto)
-
-const welcome = document.getElementById("welcome")
-console.log(welcome.innerText)
-
-const usuario = prompt('Ingrese su nombre')
-welcome.innerText = "Hi " + usuario + "! Welcome to UKE BJJ "
-
-const contadorCarrito = document.querySelector('#contadorCarrito')
-const btnVaciar = document.getElementById('vaciarCarrito')
-const carritoContenedor = document.querySelector('#carrito-contenedor')
 
 
 
-const BBDD = [
+let stockProductos = [
     {
         "id": 1,
         "nombre": "Kingz - Gi - White",
         "descripcion": "Pursue the Gentle Art",
         "img": "images/kingzwhite.webp",
-        "precio": "100",
+        "precio": 100,
         "cantidad": 1
     },
     {
@@ -110,7 +31,7 @@ const BBDD = [
     },
     {
         "id": 4,
-        "nombre": "Kingz - Gi - Green Avocado",
+        "nombre": "Kingz - Gi - Avocado",
         "descripcion": "Ultralight 2.0",
         "img": "images/kingzgreen.webp",
         "precio": 150,
@@ -168,7 +89,7 @@ const BBDD = [
         "id": 11,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycrawoman2.webp",
+        "img": "./images/koralycrawoman2.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -176,7 +97,7 @@ const BBDD = [
         "id": 12,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycrawoman.webp",
+        "img": "./images/koralycrawoman.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -184,7 +105,7 @@ const BBDD = [
         "id": 13,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman.webp",
+        "img": "./images/koralycraman.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -192,157 +113,122 @@ const BBDD = [
         "id": 14,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman2.webp",
+        "img": "./images/koralycraman2.jpg",
         "precio": 140,
         "cantidad": 1
     },
     {
         "id": 15,
         "nombre": "Koral - No Gi",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman3.webp",
-        "precio": 140,
+        "descripcion": "Black & purple",
+        "img": "./images/koralycraman3.jpg",
+        "precio": 80,
         "cantidad": 1
     }
 ]
 
-const carrito = [];
 
-let total = 0;
+const productosContainer = document.querySelector('#productos-container')
+const carritoContenedor = document.querySelector('#carrito-contenedor')
+
+const contadorCarrito = document.querySelector('#contadorCarrito')
+const precioTotal = document.querySelector('#precioTotal')
+
+const btnVaciar = document.getElementById('vaciarCarrito')
+
+let carrito
+const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
 
-function renderizarproductos (){
 
-    let tienda = document.getElementById('tienda');
+// generar el DOM de todos los productos
+stockProductos.forEach((producto) => {
+    const div = document.createElement('div')
+    div.classList.add('producto')
 
-    let filtro = document.getElementById('filtro');
-    filtro.innerHTML = `
+    div.innerHTML = `
     
-    <button class="btn btn-warning mb-5 ms-3" onClick="filtroPrecio()">Filtrar mayor 120</button>
-    
-    `
+            <img src="${producto.img}">
+            <h3>${producto.nombre}</h3>
+            <p>${producto.descripcion}</p>
+            <p class="precioProducto">Precio: $${producto.precio}</p>
+            <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
+         `
+        productosContainer.append(div)
+         
+})
 
-    BBDD.forEach((e)=>{
-        
 
-        let productoHTML = 
-      
-        `
-        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-        <div class="card" style="width: 20rem;">
-            <img src="${e.img}" class="card-img-top" alt="">
-                <div class="card-body">
-                  <h5 class="card-title text-dark">${e.nombre}</h5>
-                  <p class="card-text text-dark">${e.descripcion}</p>
-                  <p class="card-text text-dark">${e.precio}</p>
-                  <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${e.id})">Add to cart</a>
-                </div>
-        </div>
-        </div>
-        
-        `
-        tienda.innerHTML += productoHTML
+// function agregarAlCarrito() {
 
-    });
-    
+// }
 
+const agregarAlCarrito = (id) => {
+    const item = stockProductos.find( (producto) => producto.id === id)
+    carrito.push(item)
+
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+
+    console.log(carrito)
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
 }
 
-renderizarproductos ();
+const removerDelCarrito = (id) => {
+    const item = carrito.find((producto) => producto.id === id)
+    const indice = carrito.indexOf(item)
+    carrito.splice(indice, 1)
 
-function agregarProductoAlCarrito (id){
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 
-    let producto = BBDD.find(producto => producto.id == id);
-
-    let productoEnCarrito = carrito.find(producto => producto.id == id);
-
-    if (productoEnCarrito){
-
-        productoEnCarrito.cantidad ++ ;
-    
-    } else {
-
-        producto.cantidad = 1;
-        carrito.push(producto);
-
-    }
-
-    renderizarCarrito ()
-
-
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
 }
 
-function renderizarCarrito (){
+const vaciarCarrito = () => {
+    carrito.length = 0
 
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
+}
+
+btnVaciar.addEventListener('click', vaciarCarrito)
+
+const renderCarrito = () => {
+    
     carritoContenedor.innerHTML = ''
 
-    let carritoHTML = document.getElementById('carrito');
+    carrito.forEach((item) => {
+        const div = document.createElement('div')
+        div.classList.add('productoEnCarrito')
 
-    html = '';
 
-    carrito.forEach((producto, id)=>{
+        //<div class="pro-container">
+        //<div class="pro">
 
-        html +=     `
-        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-        <div class="card" style="width: 20rem;">
-        <img src="${producto.img}" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title text-dark">${producto.nombre}</h5>
-              <p class="card-text text-dark">${producto.descripcion}</p>
-              <p class="card-text text-dark">${producto.precio}</p>
-              <p class="card-text text-dark">Cantidad: ${producto.cantidad}<p>
-              <button class="btn btn-danger" onClick="eliminarProductoDelCarrito(${id})">Delete</a>
-            </div>
-        </div>
-        </div>
+        div.innerHTML = ` 
+
+            <img src="${item.img}">
+            <h3>${item.nombre}</h3>
+            <p>${item.descripcion}</p>
+            <p>Precio: $${item.precio}</p>
+            <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
+            <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
+      
+                    `
         
-        
-        `
-
+        carritoContenedor.append(div)
     })
-
-    carritoHTML.innerHTML = html;
-
-    calcularTotal ();
-
 }
 
-function calcularTotal (){
-
-    let total = 0
-
-    carrito.forEach((producto) => {
-
-        total += producto.cantidad * producto.precio;
-
-    });
-
-    console.log(total);
-
+const renderCantidad = () => {
+    contadorCarrito.innerText = carrito.length
 }
-
-const eliminarProductoDelCarrito = (id) => {
-
-    console.log(carrito[id].cantidad);
-    carrito[id].cantidad --;
-    console.log(carrito[id].cantidad);
-
-    if(carrito[id].cantidad == 0)
-
-        carrito.splice(id, 1);
-
-    renderizarCarrito ();
-
-}
-
-const filtroPrecio = () => {
-
-    let bd = BBDD.filter(producto => producto.precio > 120)
-    console.log(bd);
-
-}
-
-const precioTotal = document.querySelector('#precioTotal')
 
 const renderTotal = () => {
     let total = 0
@@ -354,43 +240,110 @@ const renderTotal = () => {
 }
 
 
-const vaciarCarrito = () => {
-    carrito.length = 0
+if (carritoEnLS) {
+    carrito = carritoEnLS
 
     renderCarrito()
     renderCantidad()
     renderTotal()
+} else {
+    carrito = []
 }
 
-btnVaciar.addEventListener('click', vaciarCarrito)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//console.log(document)
+//console.log(header)
+//
+//
+//console.log("Este es un mensaje en consola")
+//console.log("Inicio de sesión")
+//
+//
+//const titulo = document.getElementById("titulo")
+//console.log(titulo.innerText)
+//
+//console.log(titulo.innerHTML)
+//
+//const texto = document.getElementById("texto")
+//console.log(texto)
+//
+//const welcome = document.getElementById("welcome")
+//console.log(welcome.innerText)
+//
+//const usuario = prompt('Ingrese su nombre')
+//welcome.innerText = "Hi " + usuario + "! Welcome to UKE BJJ "
+
+
+
+
+//const productosContainer = document.querySelector('#contenedor-productos')
+//const carritoContenedor = document.querySelector('#carrito-contenedor')
+//
+//const contadorCarrito = document.querySelector('#contadorCarrito')
+//const precioTotal = document.querySelector('#precioTotal')
+//
+//const btnVaciar = document.getElementById('vaciarCarrito')
+//
+//let carrito
+//const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
+//
+//
+//
+//// generar el DOM de todos los productos
 //stockProductos.forEach((producto) => {
 //    const div = document.createElement('div')
 //    div.classList.add('producto')
 //
 //    div.innerHTML = `
-//    <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-//        <div class="card" style="width: 20rem;">
-//            <img src="${producto.img}" class="card-img-top" alt="">
-//                <div class="card-body">
-//                    <h5 class="card-title text-dark">${producto.nombre}</h5>
-//                    <p class="card-text text-dark">${producto.descripcion}</p>
-//                    <p class="card-text text-dark">${producto.precio}</p>
-//                    <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${producto.id})">Add to cart</a>
-//                </div>
-//        </div>
-//    </div>
-//
-//
-//            `                    
+//                    <img src=${producto.img} alt="">
+//                    <h3>${producto.nombre}</h3>
+//                    <p>${producto.desc}</p>
+//                    <p>Talle: ${producto.talle}</p>
+//                    <p class="precioProducto">Precio: $${producto.precio}</p>
+//                    <button onclick="agregarAlCarrito(${producto.id})" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+//                `
 //
 //    productosContainer.append(div)
 //})
 //
+//
+//// function agregarAlCarrito() {
+//
+//// }
+//
 //const agregarAlCarrito = (id) => {
 //    const item = stockProductos.find( (producto) => producto.id === id)
 //    carrito.push(item)
+//
+//    localStorage.setItem('carrito', JSON.stringify(carrito))
 //
 //    console.log(carrito)
 //    renderCarrito()
@@ -403,6 +356,8 @@ btnVaciar.addEventListener('click', vaciarCarrito)
 //    const indice = carrito.indexOf(item)
 //    carrito.splice(indice, 1)
 //
+//    localStorage.setItem('carrito', JSON.stringify(carrito))
+//
 //    renderCarrito()
 //    renderCantidad()
 //    renderTotal()
@@ -410,6 +365,8 @@ btnVaciar.addEventListener('click', vaciarCarrito)
 //
 //const vaciarCarrito = () => {
 //    carrito.length = 0
+//
+//    localStorage.setItem('carrito', JSON.stringify(carrito))
 //
 //    renderCarrito()
 //    renderCantidad()
@@ -426,19 +383,9 @@ btnVaciar.addEventListener('click', vaciarCarrito)
 //        div.classList.add('productoEnCarrito')
 //
 //        div.innerHTML = `
-//      
-//        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-//            <div class="card" style="width: 20rem;">
-//                <img src="${producto.img}" class="card-img-top" alt="">
-//                    <div class="card-body">
-//                        <h5 class="card-title text-dark">${producto.nombre}</h5>
-//                        <p class="card-text text-dark">${producto.descripcion}</p>
-//                        <p class="card-text text-dark">${producto.precio}</p>
-//                        <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${producto.id})">Add to cart</a>
-//                    </div>
-//            </div>
-//        </div>
-//                
+//                    <p>${item.nombre}</p>
+//                    <p>Precio: $${item.precio}</p>
+//                    <button onclick="removerDelCarrito(${item.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
 //                    `
 //        
 //        carritoContenedor.append(div)
@@ -459,6 +406,16 @@ btnVaciar.addEventListener('click', vaciarCarrito)
 //}
 //
 //
+//if (carritoEnLS) {
+//    carrito = carritoEnLS
+//
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//} else {
+//    carrito = []
+//}
+//
 //const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
 //const botonAbrir = document.getElementById('boton-carrito')
 //const botonCerrar = document.getElementById('carritoCerrar')
@@ -476,3 +433,169 @@ btnVaciar.addEventListener('click', vaciarCarrito)
 //modalCarrito.addEventListener('click', (event)=>{
 //    event.stopPropagation()
 //})
+
+
+//const contadorCarrito = document.querySelector('#contadorCarrito')
+//const btnVaciar = document.getElementById('vaciarCarrito')
+//const carritoContenedor = document.querySelector('#carrito-contenedor')
+
+
+//const carrito = [];
+//
+//let total = 0;
+//
+//
+//function renderizarproductos (){
+//
+//    let tienda = document.getElementById('tienda');
+//
+//    let filtro = document.getElementById('filtro');
+//    filtro.innerHTML = `
+//    
+//    <button class="btn btn-warning mb-5 ms-3" onClick="filtroPrecio()">Filtrar mayor 120</button>
+//    
+//    `
+//
+//    BBDD.forEach((e)=>{
+//        
+//
+//        let productoHTML = 
+//      
+//        `
+//        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
+//        <div class="card" style="width: 20rem;">
+//            <img src="${e.img}" class="card-img-top" alt="">
+//                <div class="card-body">
+//                  <h5 class="card-title text-dark">${e.nombre}</h5>
+//                  <p class="card-text text-dark">${e.descripcion}</p>
+//                  <p class="card-text text-dark">${e.precio}</p>
+//                  <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${e.id})">Add to cart</a>
+//                </div>
+//        </div>
+//        </div>
+//        
+//        `
+//        tienda.innerHTML += productoHTML
+//
+//    });
+//    
+//
+//}
+//
+//renderizarproductos ();
+//
+//function agregarProductoAlCarrito (id){
+//
+//    let producto = BBDD.find(producto => producto.id == id);
+//
+//    let productoEnCarrito = carrito.find(producto => producto.id == id);
+//
+//    if (productoEnCarrito){
+//
+//        productoEnCarrito.cantidad ++ ;
+//    
+//    } else {
+//
+//        producto.cantidad = 1;
+//        carrito.push(producto);
+//
+//    }
+//
+//    renderizarCarrito ()
+//
+//
+//}
+//
+//function renderizarCarrito (){
+//
+//    carritoContenedor.innerHTML = ''
+//
+//    let carritoHTML = document.getElementById('carrito');
+//
+//    html = '';
+//
+//    carrito.forEach((producto, id)=>{
+//
+//        html +=     `
+//        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
+//        <div class="card" style="width: 20rem;">
+//        <img src="${producto.img}" class="card-img-top" alt="">
+//            <div class="card-body">
+//              <h5 class="card-title text-dark">${producto.nombre}</h5>
+//              <p class="card-text text-dark">${producto.descripcion}</p>
+//              <p class="card-text text-dark">${producto.precio}</p>
+//              <p class="card-text text-dark">Cantidad: ${producto.cantidad}<p>
+//              <button class="btn btn-danger" onClick="eliminarProductoDelCarrito(${id})">Delete</a>
+//            </div>
+//        </div>
+//        </div>
+//        
+//        
+//        `
+//
+//    })
+//
+//    carritoHTML.innerHTML = html;
+//
+//    calcularTotal ();
+//
+//}
+//
+//function calcularTotal (){
+//
+//    let total = 0
+//
+//    carrito.forEach((producto) => {
+//
+//        total += producto.cantidad * producto.precio;
+//
+//    });
+//
+//    console.log(total);
+//
+//}
+//
+//const eliminarProductoDelCarrito = (id) => {
+//
+//    console.log(carrito[id].cantidad);
+//    carrito[id].cantidad --;
+//    console.log(carrito[id].cantidad);
+//
+//    if(carrito[id].cantidad == 0)
+//
+//        carrito.splice(id, 1);
+//
+//    renderizarCarrito ();
+//
+//}
+//
+//const filtroPrecio = () => {
+//
+//    let bd = BBDD.filter(producto => producto.precio > 120)
+//    console.log(bd);
+//
+//}
+//
+//const precioTotal = document.querySelector('#precioTotal')
+//
+//const renderTotal = () => {
+//    let total = 0
+//    carrito.forEach((producto) => {
+//        total += producto.precio
+//    })
+//
+//    precioTotal.innerText = total
+//}
+//
+//
+//const vaciarCarrito = () => {
+//    carrito.length = 0
+//
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//}
+//
+//btnVaciar.addEventListener('click', vaciarCarrito)
+
+
