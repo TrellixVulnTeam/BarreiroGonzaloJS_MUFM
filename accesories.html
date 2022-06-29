@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Indumentaria Gi & No-Gi para Jiu Jitsu">
+    <meta name="keywords" content="Kimono, Gi, No Gi, faixa, BJJ, Jiu Jitsu, Arte Suave, UKE">
+    <title>Accesories</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+ 
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+
+    <script defer src="accesories.js"></script>
+
+</head>
+<body class="bg-white text-dark">
+    <section id="header">
+        <a href="index.html"><img src="images/icno.webp" class="logo" alt="" width="150%" height="100px"></a>
+        <div class="container-fluid">
+            <ul id="navbar">
+                <li><a href="men.html">Men's</a></li>
+                <li><a href="women.html">Women's</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><img src="images/carrito-de-compras.png"></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button></li>
+                <li><button id="clear-data" class="btn btn-dark">Logout</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <h5 id="welcome"></h5>
+    
+    <header>
+        <div class="container text-center">
+            <h1 id="titulo" class="titulo">UKE BJJ</h1>
+            <h4 class="subtitle">"The gentle art"</h4>
+            <div id="tiempo" class="row"></div>
+        </div>
+    </header>
+
+    <section id="banner-acc">
+        <h2>Search and find everything you need</h2>
+        <h4>Take advantage of our offers</h4>
+        <h5>Save money with our UKE's coupons</h5>
+        <p><button class="btn btn-light"><strong>Shop Now</strong></button></p>
+    </section>
+
+    <section class="container mt-5">
+        <h2 id ="texto" class="text-center">Accesories BJJ</h2>
+        <div class="items">
+            
+        </div>
+    </section>
+
+    <section id="productos-container">
+
+        <!--    PRUEBA SUMADOR CANTIDADES DE PRODUCTOS      -->
+        
+    </section>
+
+    <section class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3 class="btn-dark text-light">Your products</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle">0</i></button>
+            <div id="carrito-contenedor">
+
+                <div class="productoEnCarrito">
+                    <!--<p>Kimono 1</p>
+                    <p>Precio: $1200</p>
+                    <button class=" boton-eliminar btn btn-danger"><i class="fas fa-trash-alt">Delete</i></button>-->
+                </div>
+
+            </div>
+            <p class="precioProducto  btn-dark text-light">Total: $<span id="precioTotal">0</span></p>
+            <button id="vaciarCarrito" class="boton-eliminar btn btn-danger">Empty cart</button>
+                                    
+        </div>
+    </section>
+
+    <!--    SECCIÓN FOOTER      -->
+
+    <footer class="section-p1">
+        <div class="col">
+            <img src="images/icno.webp" alt="">
+            <h3>Contact</h3>
+            <p><strong>Adress:</strong> Ensenada 194 PB D, Ciudad Autónoma de Buenos Aires</p>
+            <p><strong>Phone:</strong> (+54) 11-6421-6419</p>
+            <p><strong>Hours:</strong> 8:00 - 18:00 / Mon-Sat</p>
+            <div class="follow">
+                <p><strong>Follow us</strong></p>
+                <div class="icon">
+                    <a href="www.facebook.com"><img src="images/facebook.png" class="social"></a>
+                    <a href="www.instagram.com"><img src="images/instagram.png" class="social"></a>
+                    <a href="www.whatsapp.com"><img src="images/whatsapp.png" class="social"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>

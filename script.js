@@ -1,8 +1,31 @@
+let usuario
 
+const usuarioLS = localStorage.getItem('user')
 
+if (usuarioLS) {
+    usuario = usuarioLS
+} else {
+    usuario = prompt("Ingrese su nombre")
+    localStorage.setItem("user", usuario)
+}
 
+const welcomeTitle = document.querySelector("#welcome")
+welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
 
+//sessionStorage.setItem("producto")
 
+/* REMOVER DATOS DEL STORAGE */
+
+/* localStorage.removeItem('user') */
+
+/* localStorage.clear('') */
+
+const clearData = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
+}
+
+document.querySelector("#clear-data").addEventListener('click', clearData)
 
 let stockProductos = [
     {
@@ -136,7 +159,7 @@ const precioTotal = document.querySelector('#precioTotal')
 
 const btnVaciar = document.getElementById('vaciarCarrito')
 
-let carrito
+//const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
 
@@ -165,6 +188,17 @@ stockProductos.forEach((producto) => {
 
 const agregarAlCarrito = (id) => {
     const item = stockProductos.find( (producto) => producto.id === id)
+
+    if (item){
+        item.cantidad +1 ;
+
+    } else {
+
+        item.cantidad = 1;
+        carrito.push(item);
+
+    }   
+
     carrito.push(item)
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -200,16 +234,16 @@ const vaciarCarrito = () => {
 btnVaciar.addEventListener('click', vaciarCarrito)
 
 const renderCarrito = () => {
+
+    
     
     carritoContenedor.innerHTML = ''
+
 
     carrito.forEach((item) => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
 
-
-        //<div class="pro-container">
-        //<div class="pro">
 
         div.innerHTML = ` 
 
@@ -223,12 +257,33 @@ const renderCarrito = () => {
                     `
         
         carritoContenedor.append(div)
+
     })
 }
 
 const renderCantidad = () => {
+
+ //prueba de aumento de cantidades
+
+ //if (carritoContenedor){
+ //   contadorCarrito.cantidad++;
+ //} else{
+ //   producto.cantidad = 1;
+ //   carrito.push(producto);
+ //}
+
+ //fin de prueba
+
     contadorCarrito.innerText = carrito.length
 }
+
+//PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
+const renderProductos = () => {
+    contadorCantidades.innerText = cantidad.length
+
+}
+
+//
 
 const renderTotal = () => {
     let total = 0
@@ -238,6 +293,7 @@ const renderTotal = () => {
 
     precioTotal.innerText = total
 }
+
 
 
 if (carritoEnLS) {
@@ -252,6 +308,13 @@ if (carritoEnLS) {
 
 
 
+function spread(...parametros) {
+
+    console.log(parametros);
+}
+
+
+spread(1, 2, 3, 4, 5);
 
 
 
