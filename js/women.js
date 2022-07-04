@@ -4,7 +4,7 @@ const stockProductos = [
     "id": 7,
     "nombre": "Kingz - Gi - Black",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/blackgirl.webp",
+    "img": "../images/blackgirl.webp",
     "precio": 140,
     "cantidad": 1
 },
@@ -12,7 +12,7 @@ const stockProductos = [
     "id": 8,
     "nombre": "Kingz - Gi - White",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/whitegirl.webp",
+    "img": "../images/whitegirl.webp",
     "precio": 140,
     "cantidad": 1
 },
@@ -20,7 +20,7 @@ const stockProductos = [
     "id": 9,
     "nombre": "Kingz - Gi - Blue",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/bluegirl.webp",
+    "img": "../images/bluegirl.webp",
     "precio": 140,
     "cantidad": 1
 },
@@ -28,7 +28,7 @@ const stockProductos = [
     "id": 10,
     "nombre": "Kingz - Gi - Dark Blue",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/bluemoongirl.webp",
+    "img": "../images/bluemoongirl.webp",
     "precio": 140,
     "cantidad": 1
 },
@@ -36,7 +36,7 @@ const stockProductos = [
     "id": 11,
     "nombre": "Koral - No Gi",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/koralycrawoman2.jpg",
+    "img": "../images/koralycrawoman2.jpg",
     "precio": 140,
     "cantidad": 1
 },
@@ -44,7 +44,7 @@ const stockProductos = [
     "id": 12,
     "nombre": "Koral - No Gi",
     "descripcion": "Pursue the Gentle Art",
-    "img": "./images/koralycrawoman.jpg",
+    "img": "../images/koralycrawoman.jpg",
     "precio": 140,
     "cantidad": 1
 }

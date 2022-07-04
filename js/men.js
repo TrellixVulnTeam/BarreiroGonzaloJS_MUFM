@@ -1,44 +1,45 @@
 const stockProductos = [
+
     {
         "id": 1,
         "nombre": "Kingz - Gi - White",
         "descripcion": "Material RipStop",
-        "img": "images/kingzwhite.webp",
+        "img": "../images/kingzwhite.webp",
         "precio": 100,
         "cantidad": 1
     },
     {
         "id": 2,
         "nombre": "Kingz - Gi - White",
-        "img": "images/kingzwhite2.webp",
+        "img": "../images/kingzwhite2.webp",
         "precio": 90,
         "cantidad": 1
     },
     {
         "id": 3,
         "nombre": "Kingz - Gi - Grey",
-        "img": "images/kingzgrey.webp",
+        "img": "../images/kingzgrey.webp",
         "precio": 200,
         "cantidad": 1
     },
     {
         "id": 4,
         "nombre": "Kingz - Gi - Green",
-        "img": "images/kingzgreen.webp",
+        "img": "../images/kingzgreen.webp",
         "precio": 150,
         "cantidad": 1
     },
     {
         "id": 5,
         "nombre": "Kingz - Gi - Blue",
-        "img": "images/kingzblue.webp",
+        "img": "../images/kingzblue.webp",
         "precio": 100,
         "cantidad": 1
     },
     {
         "id": 6,
         "nombre": "Kingz - Gi - Black",
-        "img": "images/kingzblack.webp",
+        "img": "../images/kingzblack.webp",
         "precio": 140,
         "cantidad": 1
     },
@@ -46,7 +47,7 @@ const stockProductos = [
         "id": 13,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman.jpg",
+        "img": "../images/koralycraman.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -54,7 +55,7 @@ const stockProductos = [
         "id": 14,
         "nombre": "Koral - No Gi",
         "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman2.jpg",
+        "img": "../images/koralycraman2.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -62,7 +63,7 @@ const stockProductos = [
         "id": 15,
         "nombre": "Koral - No Gi",
         "descripcion": "Black & purple",
-        "img": "./images/koralycraman3.jpg",
+        "img": "../images/koralycraman3.jpg",
         "precio": 80,
         "cantidad": 1
     }

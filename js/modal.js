@@ -10,8 +10,11 @@ botonCerrar.addEventListener('click', ()=>{
     contenedorModal.classList.toggle('modal-active')
 })
 contenedorModal.addEventListener('click', ()=>{
+     contenedorModal.classList.toggle('modal-active')
     botonCerrar.click()
 })
+
 modalCarrito.addEventListener('click', (event)=>{
+     console.log(event)
     event.stopPropagation()
 })

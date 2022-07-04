@@ -1,3 +1,20 @@
+swal({
+    title: 'Are you sure?',
+    text: "You are about to enter the world of BJJ",
+    icon: 'warning',
+    buttons: true, 
+    dangermode: true,
+}).then((willAccept) => {
+    if (willAccept) {
+      swal("You are welcome!", {
+        icon: "success",
+      });
+    } else {
+      swal("We sorry! But You are welcome too", {
+        icon: "error",
+    })}
+})
+
 let usuario
 
 const usuarioLS = localStorage.getItem('user')
@@ -12,13 +29,7 @@ if (usuarioLS) {
 const welcomeTitle = document.querySelector("#welcome")
 welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
 
-//sessionStorage.setItem("producto")
-
 /* REMOVER DATOS DEL STORAGE */
-
-/* localStorage.removeItem('user') */
-
-/* localStorage.clear('') */
 
 const clearData = () => {
     localStorage.removeItem('user')
@@ -26,6 +37,21 @@ const clearData = () => {
 }
 
 document.querySelector("#clear-data").addEventListener('click', clearData)
+
+//  TEST SWEET ALERT 2
+const btn = document.querySelector('#myBtn')
+btn.addEventListener('click', () => {
+
+    Toastify({
+        text: 'Please, scroll down to start shopping',
+        duration: 5000,
+        gravity: 'top',
+        className: 'UkeBJJ',
+        style: {
+            background: "linear-gradient(to right, #62C456 , #198754)",
+          }
+    }).showToast()
+})
 
 let stockProductos = [
     {
@@ -155,6 +181,7 @@ const productosContainer = document.querySelector('#productos-container')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
 
 const contadorCarrito = document.querySelector('#contadorCarrito')
+const contadorCantidades = document.querySelector('#contador-cantidades')
 const precioTotal = document.querySelector('#precioTotal')
 
 const btnVaciar = document.getElementById('vaciarCarrito')
@@ -175,11 +202,37 @@ stockProductos.forEach((producto) => {
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p class="precioProducto">Precio: $${producto.precio}</p>
+            <button onclick="sumarCantidad(${producto.cantidad})" class="btn btn-light">+</button>
+            <span id="cantidadTotal">1</span>
+            <button onclick="restarCantidad(${producto.cantidad})" class="btn btn-light">-</button>
             <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
          `
         productosContainer.append(div)
-         
+
 })
+
+// FUNCION SUMAR CANTIDAD
+const sumarCantidad = (id) => {
+    const item = stockProductos.find( (cantidad) => cantidad.id === id)
+
+    if (item){
+        item.cantidad +1
+    } else {
+        item.cantidad = 1;
+        sumarCantidad.push(item);
+    }
+}
+
+const restarCantidad = (id) => {
+    const item = stockProductos.find( (cantidad) => cantidad.id === id)
+
+    if (item){
+        item.cantidad -1
+    } else {
+        item.cantidad = 1;
+        restarCantidad.push(item);
+    }
+}
 
 
 // function agregarAlCarrito() {
@@ -263,24 +316,13 @@ const renderCarrito = () => {
 
 const renderCantidad = () => {
 
- //prueba de aumento de cantidades
-
- //if (carritoContenedor){
- //   contadorCarrito.cantidad++;
- //} else{
- //   producto.cantidad = 1;
- //   carrito.push(producto);
- //}
-
- //fin de prueba
-
     contadorCarrito.innerText = carrito.length
 }
 
 //PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
 const renderProductos = () => {
     contadorCantidades.innerText = cantidad.length
-
+    contadorCantidades.innerText = cantidad.length
 }
 
 //

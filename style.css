@@ -63,8 +63,8 @@ body {
 }
 
 #banner{
-    background-image: url("images/kingzgreen.webp");
-    height: 55vh;
+    background-image: url("images/bannerimg.jpeg");
+    height: 50vh;
     width: 100%;
     /*background-size: cover;*/
     background-position: 50%;

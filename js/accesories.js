@@ -4,7 +4,7 @@ const stockProductos = [
         "id": 1,
         "nombre": "Koral",
         "descripcion": "White belt",
-        "img": "./images/faixabrancakoral.jpg",
+        "img": "../images/faixabrancakoral.jpg",
         "precio": 140,
         "cantidad": 1
         
@@ -13,7 +13,7 @@ const stockProductos = [
         "id": 2,
         "nombre": "Koral",
         "descripcion": "Blue belt",
-        "img": "./images/faixaazulkoral.jpg",
+        "img": "../images/faixaazulkoral.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -21,7 +21,7 @@ const stockProductos = [
         "id": 3,
         "nombre": "Koral",
         "descripcion": "Purple belt",
-        "img": "./images/faixaroxakoral.jpg",
+        "img": "../images/faixaroxakoral.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -29,7 +29,7 @@ const stockProductos = [
         "id": 4,
         "nombre": "Koral",
         "descripcion": "Brown belt",
-        "img": "./images/faixamarronkoral.jpg",
+        "img": "../images/faixamarronkoral.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -37,7 +37,7 @@ const stockProductos = [
         "id": 5,
         "nombre": "Koral",
         "descripcion": "Black belt",
-        "img": "./images/faixapretakoral.jpg",
+        "img": "../images/faixapretakoral.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -45,7 +45,7 @@ const stockProductos = [
         "id": 6,
         "nombre": "Atama",
         "descripcion": "white belt",
-        "img": "./images/faixabrancaatama.jpg",
+        "img": "../images/faixabrancaatama.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -53,7 +53,7 @@ const stockProductos = [
         "id": 7,
         "nombre": "Atama",
         "descripcion": "Blue belt",
-        "img": "./images/faixaazulatama.png",
+        "img": "../images/faixaazulatama.png",
         "precio": 140,
         "cantidad": 1
     },
@@ -61,7 +61,7 @@ const stockProductos = [
         "id": 8,
         "nombre": "Atama",
         "descripcion": "Purple belt",
-        "img": "./images/faixaroxaatama.jpg",
+        "img": "../images/faixaroxaatama.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -69,7 +69,7 @@ const stockProductos = [
         "id": 9,
         "nombre": "Atama",
         "descripcion": "Brown belt",
-        "img": "./images/faixamarromatama.png",
+        "img": "../images/faixamarromatama.png",
         "precio": 140,
         "cantidad": 1
     },
@@ -77,7 +77,7 @@ const stockProductos = [
         "id": 10,
         "nombre": "Atama",
         "descripcion": "Black belt",
-        "img": "./images/faixapretaatama.jpg",
+        "img": "../images/faixapretaatama.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -85,7 +85,7 @@ const stockProductos = [
         "id": 11,
         "nombre": "Bucal",
         "descripcion": "Black belt",
-        "img": "./images/bucalmma.jpg",
+        "img": "../images/bucalmma.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -93,7 +93,7 @@ const stockProductos = [
         "id": 12,
         "nombre": "Bucal",
         "descripcion": "Black belt",
-        "img": "./images/bucalufc.png",
+        "img": "../images/bucalufc.png",
         "precio": 140,
         "cantidad": 1
     },
@@ -101,7 +101,7 @@ const stockProductos = [
         "id": 13,
         "nombre": "Bucal",
         "descripcion": "Black belt",
-        "img": "./images/bucaldobleeverlast.jpg",
+        "img": "../images/bucaldobleeverlast.jpg",
         "precio": 140,
         "cantidad": 1
     },
@@ -109,7 +109,7 @@ const stockProductos = [
     "id": 14,
     "nombre": "Bucal",
     "descripcion": "Black belt",
-    "img": "./images/bucalvenum.jpg",
+    "img": "../images/bucalvenum.jpg",
     "precio": 140,
     "cantidad": 1
     }
