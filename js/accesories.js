@@ -1,5 +1,25 @@
-const stockProductos = [
+/* let usuario
+const usuarioLS = localStorage.getItem('user')
+if (usuarioLS) {
+    usuario = usuarioLS
+}
+Swal.fire(`Welcome to Accesories's section ${usuario}`)
 
+const compra = document.querySelector('#compra')
+compra.addEventListener('click', () => {
+
+    Toastify({
+        text: 'Please, scroll down to start shopping',
+        duration: 5000,
+        gravity: 'top',
+        className: 'UkeBJJ',
+        style: {
+            background: "linear-gradient(to right, #62C456 , #198754)",
+          }
+    }).showToast()
+}) */
+
+const stockProductos = [
     {
         "id": 1,
         "nombre": "Koral",
@@ -135,7 +155,6 @@ stockProductos.forEach((producto) => {
     div.classList.add('producto')
 
     div.innerHTML = `
-    
             <img src="${producto.img}">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
@@ -146,120 +165,167 @@ stockProductos.forEach((producto) => {
          
 })
 
+const agregarAlCarrito = (productId) => {
 
-// function agregarAlCarrito() {
+    const itemInCart = carrito.find((producto) => producto.id === productId)
 
-// }
-
-const agregarAlCarrito = (id) => {
-    const item = stockProductos.find( (producto) => producto.id === id)
-
-    if (item){
-        item.cantidad +1 ;
-
-    } else {
-
-        item.cantidad = 1;
-        carrito.push(item);
-
-    }   
-
-    carrito.push(item)
+        if (itemInCart) {
+            itemInCart.cantidad ++
+            showMensaje(itemInCart.nombre)
+        } else {
+            const {id, nombre, precio} = stockProductos.find( (producto) => producto.id === productId) 
+            const itemToCart = {
+            id,
+            nombre, 
+            precio, 
+            cantidad: 1
+        } 
+        carrito.push(itemToCart)
+        showMensaje(nombre)
+    }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     console.log(carrito)
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
+
+//const agregarAlCarrito = (id) => {
+//    const item = stockProductos.find( (producto) => producto.id === id)
+//
+//    if (item){
+//        item.cantidad +1 ;
+//
+//    } else {
+//
+//        item.cantidad = 1;
+//        carrito.push(item);
+//
+//    }   
+//
+//    carrito.push(item)
+//
+//    localStorage.setItem('carrito', JSON.stringify(carrito))
+//
+//    console.log(carrito)
+//    renderCarrito()
+//    renderCantidad()
+//    renderTotal()
+//}
+
+const showMensaje = (nombre) => {
+
+    Toastify({
+        text: `Have added "${nombre}"`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: 'blue',
+        }
+    }).showToast()
+}
+
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice, 1)
+    deletedMensaje(item.nombre)
+
+    item.cantidad -= 1
+    if (item.cantidad === 0){
+        const indice = carrito.indexOf(item)
+        carrito.splice(indice, 1)
+    }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
+}
+
+const deletedMensaje = (producto) => {
+    Toastify({
+        text: `"${producto}" has been deleted`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: 'red',
+        }
+    }).showToast()
 }
 
 const vaciarCarrito = () => {
+
     carrito.length = 0
-
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
-btnVaciar.addEventListener('click', vaciarCarrito)
+btnVaciar.addEventListener('click', () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover the cart!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: 'red',
+        confirmButtonText: 'I agree',
+        cancelButtonText: 'Cancel'
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito ()
+            Toastify({
+                text: 'The cart has been deleted',
+                position: 'center',
+                gravity: 'center',
+                duration: 4000,
+                style:{
+                    background: 'red'
+                }
+            }).showToast ()
+        }
+      });
+})
 
 const renderCarrito = () => {
-
-    
-    
     carritoContenedor.innerHTML = ''
-
 
     carrito.forEach((item) => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
 
-
         div.innerHTML = ` 
-
-            <img src="${item.img}">
             <h3>${item.nombre}</h3>
-            <p>${item.descripcion}</p>
             <p>Precio: $${item.precio}</p>
             <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
             <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
-      
-                    `
-        
+            `
         carritoContenedor.append(div)
 
     })
 }
 
 const renderCantidad = () => {
-
- //prueba de aumento de cantidades
-
- //if (carritoContenedor){
- //   contadorCarrito.cantidad++;
- //} else{
- //   producto.cantidad = 1;
- //   carrito.push(producto);
- //}
-
- //fin de prueba
-
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
 }
 
 //PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
-const renderProductos = () => {
-    contadorCantidades.innerText = cantidad.length
-
-}
-
+//const renderProductos = () => {
+//    contadorCantidades.innerText = cantidad.length
 //
-
+//}
 const renderTotal = () => {
     let total = 0
     carrito.forEach((producto) => {
-        total += producto.precio
+        total += producto.precio * producto.cantidad
     })
-
     precioTotal.innerText = total
 }
-
-
 
 if (carritoEnLS) {
     carrito = carritoEnLS

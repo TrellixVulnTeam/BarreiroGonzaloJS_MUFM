@@ -8,18 +8,13 @@
     <meta name="keywords" content="Kimono, Gi, No Gi, faixa, BJJ, Jiu Jitsu, Arte Suave, UKE">
     <title>UKE BJJ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
-<!--     <link rel="stylesheet" href="css/bootstrap.min.css">
- -->    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">   
     <link rel="stylesheet" href="style.css">
- 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
     <script defer src="js/script.js"></script>
-    <script defer src="modal.js"></script>
-
-    </head>
+    <script src="assets/sweets/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="assets/sweets/sweetalert2.css">
+</head>
 <body class="bg-dark text-white">
     <section id="header">
         <a href="index.html"><img src="images/icno.webp" class="logo" alt="" width="150%" height="100px"></a>
@@ -29,7 +24,7 @@
                 <li><a href="pages/women.html">Women's</a></li>
                 <li><a href="pages/accesories.html">Accesories</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
-                <li><img src="images/carrito-de-compras.png"></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button></li>
+                <li><img src="images/carrito-de-compras.png"></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito"></span></button></li>
                 <li><button id="clear-data" class="btn btn-dark">Logout</button></li>
             </ul>
         </div>
@@ -49,11 +44,11 @@
         <h2>Search and find everything you need</h2>
         <h4>Take advantage of our offers</h4>
         <h5>Save money with our UKE's coupons</h5>
-        <p><button id="myBtn" class="btn btn-success">Shop Now</button></p>
+        <p><button id="shop" class="btn btn-success">Shop Now</button></p>
     </section>
 
     <section class="container mt-5">
-        <h2 id ="texto" class="text-center">Gi & No-Gi</h2>
+        <h2 id ="texto" class="text-center">Gi, No-Gi & accesories</h2>
         <div class="items">
             <div class="row">
 
@@ -65,25 +60,20 @@
 
     <section id="productos-container">
 
-        <!--    PRUEBA SUMADOR CANTIDADES DE PRODUCTOS      -->
-        
     </section>
 
     <section class="modal-contenedor">
         <div class="modal-carrito">
             <h3 class="btn-warning text-dark">Your products</h3>
-            <button id="carritoCerrar"><i class="fas fa-times-circle">0</i></button>
+<!--             <button id="carritoCerrar"><i class="fas fa-times-circle">0</i></button>-->
             <div id="carrito-contenedor">
 
                 <div class="productoEnCarrito">
-                    <p>Kimono 1</p>
-                    <p>Precio: $1200</p>
-                    <p>Cantidad: <span id="contador-cantidades">1</span></p>
-                    <button class=" boton-eliminar btn btn-danger"><i class="fas fa-trash-alt">Delete</i></button>
+                    
                 </div>
 
             </div>
-            <p class="precioProducto  btn-warning text-dark">Total: $<span id="precioTotal">0</span></p>
+            <p class="precioProducto  btn-warning text-dark">Total: $<span id="precioTotal"></span></p>
             <button id="vaciarCarrito" class="boton-eliminar btn btn-danger">Empty cart</button>
                                     
         </div>
@@ -110,154 +100,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>
-
-
- <!-- <main id="contenedor-productos">
-
-
-    </main>
-
-    <div class="modal-contenedor">
-        <div class="modal-carrito">
-            <h3 class="text-center">Cart</h3>
-            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
-            <div id="carrito-contenedor">
--->
-               <!--<div class="productoEnCarrito">
-                    <p>Kimono Kingz</p>
-                    <p>Precio: $1200</p>
-                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            -->
-           
-     <!--     </div>
-            <div    class="text-center">
-                <p class="precioProducto">Total: $<span id="precioTotal">0</span></p>
-                <button id="vaciarCarrito" class="boton-eliminar">Empty cart</button>
-            </div>
-        </div>
-    </div>
--->
-
-
-
-
-
-
-
-<!--   
-    <section    class="container mt-5">
-        <h3 id ="texto" class="text-center">Gi & No-Gi</h3>
-        <div id="filtro">
-
-        </div>
-        <div class="items">
-            <div class="row">
-
-            </div>
-        </div>
-    </section>
-
-   <section    class="container">
-        <div class="row text-center" id="tienda">
-
-        </div>
-    </section>
-
-    <section class="container mt-5">
-        <div class="row text-center" id="carrito">
-
-        </div>
-        <div id="total">
-
-        </div>
-    </section>
--->
-
-   
-
-
-   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></script>-->
-
-
-
-
-  <!-- <section id="productos" class="section-p1">
-    <h2 id ="texto" class="text-center">Gi & No-Gi</h2>
-    <div class="row text-center" id="tienda"> 
-
-    </div>
-    
-    <!--<div class="pro-container">
-        <div class="pro">
-            <img src="images/kingzblack.webp" alt="">
-            <div class="description">
-                <h5><span>Kingz - Gi</span></h5> 
-                <h3>Balistico</h3>
-                <h5>$140</h5>
-                <button type="button" class="btn btn-primary"><strong>Add to cart</strong></button>
-            </div>
-        </div>
-        <div class="pro">
-            <img src="images/kingzblue.webp" alt="">
-            <div class="description">
-                <h5><span>Kingz - Gi</span></h5> 
-                <h3>Balistico</h3>
-                <h5>$140</h5>
-                <button type="button" class="btn btn-primary"><strong>Add to cart</strong></button>
-            </div>
-        </div>-->
-        
-<!--<div class="pro">
-        <img src="images/kingzblue.webp" alt="">
-        <div class="description">
-            <h5><span>Kingz - Gi</span></h5> 
-            <h3>Balistico</h3>
-            <h5>$140</h5>
-            <button type="button" class="btn btn-warning"><strong>Add to cart</strong></button>
-        </div>
-    </div>
-    <div class="pro">
-        <img src="images/kingzgreen.webp" alt="">
-        <div class="description">
-            <h5><span>Kingz - Gi</span></h5> 
-            <h3>Balistico</h3>
-            <h5>$140</h5>
-            <button type="button" class="btn btn-warning"><strong>Add to cart</strong></button>
-        </div>
-    </div>
-    <div class="pro">
-        <img src="images/kingzgrey.webp" alt="">
-        <div class="description">
-            <h5><span>Kingz - Gi</span></h5> 
-            <h3>Balistico</h3>
-            <h5>$140</h5>
-            <button type="button" class="btn btn-warning"><strong>Add to cart</strong></button>
-        </div>
-    </div>
-    <div class="pro">
-        <img src="images/kingzwhite.webp" alt="">
-        <div class="description">
-            <h5><span>Kingz - Gi</span></h5> 
-            <h3>Balistico</h3>
-            <h5>$140</h5>
-            <button type="button" class="btn btn-warning"><strong>Add to cart</strong></button>
-        </div>
-    </div>
-    <div class="pro">
-        <img src="images/kingzwhite2.webp" alt="">
-        <div class="description">
-            <h5><span>Kingz - Gi</span></h5> 
-            <h3>Balistico</h3>
-            <h5>$140</h5>
-            <button type="button" class="btn btn-warning"><strong>Add to cart</strong></button>
-        </div>
-    </div>
-    
-</div>-->
-<!--/section>
-</div>-->

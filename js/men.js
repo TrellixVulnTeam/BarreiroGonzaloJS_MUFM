@@ -1,3 +1,31 @@
+let usuario
+const usuarioLS = localStorage.getItem('user')
+if (usuarioLS) {
+    usuario = usuarioLS
+}
+Swal.fire(`Welcome to Men's section, ${usuario}. Choose your favourite clothes`)
+
+const compra = document.querySelector('#compra')
+compra.addEventListener('click', () => {
+
+    Toastify({
+        text: 'Please, scroll down to start shopping',
+        duration: 5000,
+        gravity: 'top',
+        className: 'UkeBJJ',
+        style: {
+            background: "linear-gradient(to right, #383938 , #1A1A1A)",
+          }
+    }).showToast()
+})
+
+const clearData = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
+}
+
+document.querySelector("#clear-data").addEventListener('click', clearData)
+
 const stockProductos = [
 
     {
@@ -11,6 +39,7 @@ const stockProductos = [
     {
         "id": 2,
         "nombre": "Kingz - Gi - White",
+        "descripcion": "Ultra Light",
         "img": "../images/kingzwhite2.webp",
         "precio": 90,
         "cantidad": 1
@@ -18,13 +47,15 @@ const stockProductos = [
     {
         "id": 3,
         "nombre": "Kingz - Gi - Grey",
-        "img": "../images/kingzgrey.webp",
+        "descripcion": "The ONE",
+        "img": "../images/kingzgrey.jpg",
         "precio": 200,
         "cantidad": 1
     },
     {
         "id": 4,
         "nombre": "Kingz - Gi - Green",
+        "descripcion": "Ultra Light 2.0",
         "img": "../images/kingzgreen.webp",
         "precio": 150,
         "cantidad": 1
@@ -69,139 +100,6 @@ const stockProductos = [
     }
 ]
 
-/* const carrito = [];
-
-let total = 0;
-
-function renderizarproductos (){
-
-    let tienda = document.getElementById('tienda');
-
-    let filtro = document.getElementById('filtro');
-    filtro.innerHTML = `
-    
-    <button class="btn btn-warning mb-5 ms-3" onClick="filtroPrecio()">Filtrar mayor 120</button>
-
-    
-    `
-
-    BBDD.forEach((e)=>{
-        
-
-        let productoHTML = 
-      
-        `
-        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-
-        <div class="card" style="width: 20rem;">
-            <img src="${e.img}" class="card-img-top" alt="">
-                <div class="card-body">
-                  <h5 class="card-title text-dark">${e.nombre}</h5>
-                  <p class="card-text text-dark">${e.descripcion}</p>
-                  <p class="card-text text-dark">${e.precio}</p>
-                  <button class="btn btn-primary" onClick="agregarProductoAlCarrito(${e.id})">Add to cart</a>
-                </div>
-        </div>
-
-        </div>
-        
-        `
-        tienda.innerHTML += productoHTML
-
-    });
-    
-
-}
-
-renderizarproductos ();
-
-function agregarProductoAlCarrito (id){
-
-    let producto = BBDD.find(producto => producto.id == id);
-
-    let productoEnCarrito = carrito.find(producto => producto.id == id);
-
-    if (productoEnCarrito){
-
-        productoEnCarrito.cantidad ++ ;
-    
-    } else {
-
-        producto.cantidad = 1;
-        carrito.push(producto);
-
-    }
-
-    renderizarCarrito ()
-
-
-}
-
-function renderizarCarrito (){
-
-    let carritoHTML = document.getElementById('carrito');
-
-    html = '';
-
-    carrito.forEach((producto, id)=>{
-
-        html +=     `
-        <div class="col-12 col-md-4 mb-5 d-flex justify-content-center">
-        <div class="card" style="width: 20rem;">
-        <img src="${producto.img}" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title text-dark">${producto.nombre}</h5>
-              <p class="card-text text-dark">${producto.descripcion}</p>
-              <p class="card-text text-dark">${producto.precio}</p>
-              <p class="card-text text-dark">Cantidad: ${producto.cantidad}<p>
-              <button class="btn btn-danger" onClick="eliminarProductoDelCarrito(${id})">Delete</a>
-            </div>
-        </div>
-        </div>
-        
-        
-        `
-
-    })
-
-    carritoHTML.innerHTML = html;
-
-    calcularTotal ();
-
-}
-
-function calcularTotal (){
-
-    carrito.forEach((producto) => {
-
-        total += producto.cantidad * producto.precio;
-
-    });
-
-    console.log(total);
-
-}
-
-const eliminarProductoDelCarrito = (id) => {
-
-    console.log(carrito[id].cantidad);
-    carrito[id].cantidad --;
-    console.log(carrito[id].cantidad);
-
-    if(carrito[id].cantidad == 0)
-
-        carrito.splice(id, 1);
-
-    renderizarCarrito ();
-
-}
-
-const filtroPrecio = () => {
-
-    let bd = BBDD.filter(producto => producto.precio > 120)
-    console.log(bd);
-
-} */
 
 const productosContainer = document.querySelector('#productos-container')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
@@ -214,139 +112,150 @@ const btnVaciar = document.getElementById('vaciarCarrito')
 //const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
-
-
 // generar el DOM de todos los productos
 stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
-
     div.innerHTML = `
-    
             <img src="${producto.img}">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p class="precioProducto">Precio: $${producto.precio}</p>
-            <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
+            <button id="cart" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
          `
-        productosContainer.append(div)
-         
+        productosContainer.append(div)   
 })
 
-
-// function agregarAlCarrito() {
-
-// }
-
-const agregarAlCarrito = (id) => {
-    const item = stockProductos.find( (producto) => producto.id === id)
-
-    if (item){
-        item.cantidad +1 ;
-
+const agregarAlCarrito = (productId) => {
+    const itemInCart = carrito.find((producto) => producto.id === productId)
+    if (itemInCart) {
+        itemInCart.cantidad ++
+        showMensaje(itemInCart.nombre)
     } else {
-
-        item.cantidad = 1;
-        carrito.push(item);
-
-    }   
-
-    carrito.push(item)
+        const {id, nombre, precio} = stockProductos.find((producto) => producto.id === productId) 
+        const itemToCart = {
+        id,
+        nombre, 
+        precio, 
+        cantidad: 1
+    } 
+    carrito.push(itemToCart)
+    showMensaje(nombre)
+    }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     console.log(carrito)
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
+// TOASTIFY AGREGAR PRODUCTO
+
+const showMensaje = (producto) => {
+
+    Toastify({
+        text: `Have added "${producto}"`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: '#0d6efd',
+        }
+    }).showToast()
+}
+
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice, 1)
+    deletedMensaje(item.nombre)
+
+    item.cantidad -= 1
+    if (item.cantidad === 0){
+        const indice = carrito.indexOf(item)
+        carrito.splice(indice, 1)
+    }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
+}
+
+const deletedMensaje = (producto) => {
+    Toastify({
+        text: `"${producto}" has been deleted`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: 'red',
+        }
+    }).showToast()
 }
 
 const vaciarCarrito = () => {
     carrito.length = 0
-
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
-btnVaciar.addEventListener('click', vaciarCarrito)
+btnVaciar.addEventListener('click', () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover the cart!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: 'red',
+        confirmButtonText: 'I agree',
+        cancelButtonText: 'Cancel'
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito ()
+            Toastify({
+                text: 'The cart has been deleted',
+                position: 'center',
+                gravity: 'center',
+                duration: 4000,
+                style:{
+                    background: 'red'
+                }
+            }).showToast ()
+        }
+      });
+})
 
 const renderCarrito = () => {
-
-    
-    
     carritoContenedor.innerHTML = ''
-
-
     carrito.forEach((item) => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
-
-
         div.innerHTML = ` 
-
-            <img src="${item.img}">
             <h3>${item.nombre}</h3>
             <p>${item.descripcion}</p>
             <p>Precio: $${item.precio}</p>
             <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
             <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
-      
-                    `
-        
+            `
         carritoContenedor.append(div)
-
     })
 }
+/*             <img src="${item.img}"> */
 
 const renderCantidad = () => {
-
- //prueba de aumento de cantidades
-
- //if (carritoContenedor){
- //   contadorCarrito.cantidad++;
- //} else{
- //   producto.cantidad = 1;
- //   carrito.push(producto);
- //}
-
- //fin de prueba
-
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
 }
-
-//PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
-const renderProductos = () => {
-    contadorCantidades.innerText = cantidad.length
-
-}
-
-//
 
 const renderTotal = () => {
     let total = 0
     carrito.forEach((producto) => {
-        total += producto.precio
+        total += producto.precio * producto.cantidad
     })
-
     precioTotal.innerText = total
 }
-
-
 
 if (carritoEnLS) {
     carrito = carritoEnLS

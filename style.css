@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -85,8 +86,8 @@ body {
 }
 
 #banner-woman {
-    background-image: url("images/bluemoongirl.webp");
-    /* height: 100%; */
+    background-image: url("images/bannerwomen.jpeg");
+    height: 55vh;
     width: 100%;
     /*background-size: cover;*/
     background-position: 50%;
@@ -95,8 +96,8 @@ body {
 }
 
 #banner-men {
-    background-image: url("images/kingzwhite2.webp");
-    /* height: 100%; */
+    background-image: url("images/bannermen.jpeg");
+    height: 55vh;
     width: 100%;
     /*background-size: cover;*/
     background-position: 50%;
@@ -147,114 +148,6 @@ body {
     margin-top: -20px;
 }
 
-/*.section-p1{
-    
-    /*padding: 4% 7%;
-    text-align: center;*/
-/*}
-/*
-/*#productos{
-/*    text-align: center;
-/*}
-/*
-/*#productos .pro-container{
-/*    display: flex;
-/*    justify-content: space-between;
-/*    max-width: 75%;
-/*    padding-top: 2%;
-/*    padding-left: 20%;
-/*    flex-wrap: wrap;
-/*}
-/*
-/*#productos .pro{
-/*    width: 25%;
-/*    min-width: 250px;
-/*    padding: 10px 12px;
-/*    border: 1px solid whitesmoke; 
-/*    border-radius: 5%;
-/*    cursor: pointer;
-/*    box-shadow: 20px 20px 30px rgba(27, 25, 25, 0.615);
-/*    margin: 15px 0;
-/*    transition: 100ms;
-/*    position: relative;
-/*}
-/*
-/*#productos .pro:hover{
-/*    box-shadow: 20px 20px 30px rgba(12, 11, 11, 1.015);
-/*
-/*}
-/*
-/*#productos .pro img{
-/*    width: 100%;
-/*    border-radius: 3%;
-/*}
-/*
-/*#productos .pro .description{
-/*    text-align: center;
-/*    padding: 1% 0;
-/*
-/*}
-/*
-/*#productos .pro .description span{
-/*    color: rgba(240, 248, 255, 0.247);
-/*}
-
-
-/*.contenedor-productos{
-    text-align: center;
-    padding-top: 1%;
-    padding-left: 2%;
-    padding-right: 2%;
-    display: flex;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-
-}*/
-
-/*.contenedor-productos .pro-container{
-    justify-content: space-between;
-    padding-top: 2%;
-    flex-wrap: wrap;
-}*/
-
-/*contenedor-productos .pro{
-    /*width: 25%;
-    min-width: 250px;
-    padding: 10px 12px;
-    border: 1px solid whitesmoke;
-    border-radius: 2%;
-    cursor: pointer;
-    box-shadow: 20px 20px 30px rgba(17, 16, 16, 0.336);
-    margin-bottom: 3%;
-    margin-left: 2%;
-    margin-right: 2%;
-    transition: 100ms;
-}*/
-
-/*.contenedor-productos .pro:hover{
-    box-shadow: 20px 20px 30px 10px rgba(17, 16, 16, 0.582);
-
-}
-
-.contenedor-productos .pro img{
-    width: 90%;
-    border-radius: 2%;
-}
-
-.contenedor-productos .pro .description{
-    color: rgba(255, 255, 255, 0.781);
-}
-
-.contenedor-productos .pro .description h3{
-    color: rgba(255, 255, 255, 0.87);
-}
-
-.contenedor-productos .pro .description h5{
-    color: white;
-}*/
-
-
 .modal-contenedor{
     padding-bottom: 5%;
     text-align: center;
@@ -304,7 +197,14 @@ body {
 
 /* estilos modal */
 
-
+/* FORMULARIO */
+.hola{
+    padding-top: 3%;
+}
+#forms{
+    padding-bottom: 3%;
+    padding-top: 1%;
+}
 /* FOOTER */
 
 footer{

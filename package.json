@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/gonzalitoeze/BarreiroGonzaloJS#readme",
   "dependencies": {
+    "luxon": "^3.0.1",
     "sweetalert2": "^11.4.19"
   },
   "devDependencies": {},
+  "keywords": [],
   "description": ""
 }

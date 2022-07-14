@@ -1,20 +1,4 @@
-swal({
-    title: 'Are you sure?',
-    text: "You are about to enter the world of BJJ",
-    icon: 'warning',
-    buttons: true, 
-    dangermode: true,
-}).then((willAccept) => {
-    if (willAccept) {
-      swal("You are welcome!", {
-        icon: "success",
-      });
-    } else {
-      swal("We sorry! But You are welcome too", {
-        icon: "error",
-    })}
-})
-
+// LOCAL STORAGE
 let usuario
 
 const usuarioLS = localStorage.getItem('user')
@@ -29,6 +13,22 @@ if (usuarioLS) {
 const welcomeTitle = document.querySelector("#welcome")
 welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
 
+// USO DE SWEETALERT2
+
+Swal.fire({
+    title: 'Are you sure?',
+    text: "You are about to enter the world of BJJ",
+    icon: 'warning',
+    confirmButtonColor: '#198754',
+    confirmButtonText: 'I accept!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        `Your welcome ${usuario}!`
+      )}
+  })
+
+
 /* REMOVER DATOS DEL STORAGE */
 
 const clearData = () => {
@@ -38,12 +38,12 @@ const clearData = () => {
 
 document.querySelector("#clear-data").addEventListener('click', clearData)
 
-//  TEST SWEET ALERT 2
-const btn = document.querySelector('#myBtn')
-btn.addEventListener('click', () => {
+//  TEST TOASTIFY
+const shop = document.querySelector('#shop')
+shop.addEventListener('click', () => {
 
     Toastify({
-        text: 'Please, scroll down to start shopping',
+        text: 'Go to the upper menu and select your option!',
         duration: 5000,
         gravity: 'top',
         className: 'UkeBJJ',
@@ -54,126 +54,126 @@ btn.addEventListener('click', () => {
 })
 
 let stockProductos = [
-    {
-        "id": 1,
-        "nombre": "Kingz - Gi - White",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "images/kingzwhite.webp",
-        "precio": 100,
-        "cantidad": 1
-    },
-    {
-        "id": 2,
-        "nombre": "Kingz - Gi - White",
-        "descripcion": "The ONE",
-        "img": "images/kingzwhite2.webp",
-        "precio": 90,
-        "cantidad": 1
-    },
-    {
-        "id": 3,
-        "nombre": "Kingz - Gi - Grey",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "images/kingzgrey.webp",
-        "precio": 200,
-        "cantidad": 1
-    },
-    {
-        "id": 4,
-        "nombre": "Kingz - Gi - Avocado",
-        "descripcion": "Ultralight 2.0",
-        "img": "images/kingzgreen.webp",
-        "precio": 150,
-        "cantidad": 1
-    },
-    {
-        "id": 5,
-        "nombre": "Kingz - Gi - Blue",
-        "descripcion": "Balistico",
-        "img": "images/kingzblue.webp",
-        "precio": 100,
-        "cantidad": 1
-    },
-    {
-        "id": 6,
-        "nombre": "Kingz - Gi - Black",
-        "descripcion": "Balistico TOTAL BLACK",
-        "img": "./images/kingzblack.webp",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 7,
-        "nombre": "Kingz - Gi - Black",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/blackgirl.webp",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 8,
-        "nombre": "Kingz - Gi - White",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/whitegirl.webp",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 9,
-        "nombre": "Kingz - Gi - Blue",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/bluegirl.webp",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 10,
-        "nombre": "Kingz - Gi - Dark Blue",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/bluemoongirl.webp",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 11,
-        "nombre": "Koral - No Gi",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycrawoman2.jpg",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 12,
-        "nombre": "Koral - No Gi",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycrawoman.jpg",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 13,
-        "nombre": "Koral - No Gi",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman.jpg",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 14,
-        "nombre": "Koral - No Gi",
-        "descripcion": "Pursue the Gentle Art",
-        "img": "./images/koralycraman2.jpg",
-        "precio": 140,
-        "cantidad": 1
-    },
-    {
-        "id": 15,
-        "nombre": "Koral - No Gi",
-        "descripcion": "Black & purple",
-        "img": "./images/koralycraman3.jpg",
-        "precio": 80,
-        "cantidad": 1
-    }
+    //{
+    //    "id": 1,
+    //    "nombre": "Kingz - Gi - White",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "images/kingzwhite.webp",
+    //    "precio": 100,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 2,
+    //    "nombre": "Kingz - Gi - White",
+    //    "descripcion": "The ONE",
+    //    "img": "./images/kingzwhite2.webp",
+    //    "precio": 90,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 3,
+    //    "nombre": "Kingz - Gi - Grey",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "images/kingzgrey.webp",
+    //    "precio": 200,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 4,
+    //    "nombre": "Kingz - Gi - Avocado",
+    //    "descripcion": "Ultralight 2.0",
+    //    "img": "images/kingzgreen.webp",
+    //    "precio": 150,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 5,
+    //    "nombre": "Kingz - Gi - Blue",
+    //    "descripcion": "Balistico",
+    //    "img": "images/kingzblue.webp",
+    //    "precio": 100,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 6,
+    //    "nombre": "Kingz - Gi - Black",
+    //    "descripcion": "Balistico TOTAL BLACK",
+    //    "img": "./images/kingzblack.webp",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 7,
+    //    "nombre": "Kingz - Gi - Black",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/blackgirl.webp",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 8,
+    //    "nombre": "Kingz - Gi - White",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/whitegirl.webp",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 9,
+    //    "nombre": "Kingz - Gi - Blue",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/bluegirl.webp",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 10,
+    //    "nombre": "Kingz - Gi - Dark Blue",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/bluemoongirl.webp",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 11,
+    //    "nombre": "Koral - No Gi",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/koralycrawoman2.jpg",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 12,
+    //    "nombre": "Koral - No Gi",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/koralycrawoman.jpg",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 13,
+    //    "nombre": "Koral - No Gi",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/koralycraman.jpg",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 14,
+    //    "nombre": "Koral - No Gi",
+    //    "descripcion": "Pursue the Gentle Art",
+    //    "img": "./images/koralycraman2.jpg",
+    //    "precio": 140,
+    //    "cantidad": 1
+    //},
+    //{
+    //    "id": 15,
+    //    "nombre": "Koral - No Gi",
+    //    "descripcion": "Black & purple",
+    //    "img": "./images/koralycraman3.jpg",
+    //    "precio": 80,
+    //    "cantidad": 1
+    //}
 ]
 
 
@@ -190,153 +190,160 @@ const btnVaciar = document.getElementById('vaciarCarrito')
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
 
-
 // generar el DOM de todos los productos
 stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
 
     div.innerHTML = `
-    
             <img src="${producto.img}">
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p class="precioProducto">Precio: $${producto.precio}</p>
-            <button onclick="sumarCantidad(${producto.cantidad})" class="btn btn-light">+</button>
-            <span id="cantidadTotal">1</span>
-            <button onclick="restarCantidad(${producto.cantidad})" class="btn btn-light">-</button>
-            <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
+            <button id="cart" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
          `
-        productosContainer.append(div)
-
+     productosContainer.append(div)
 })
 
-// FUNCION SUMAR CANTIDAD
-const sumarCantidad = (id) => {
-    const item = stockProductos.find( (cantidad) => cantidad.id === id)
 
-    if (item){
-        item.cantidad +1
-    } else {
-        item.cantidad = 1;
-        sumarCantidad.push(item);
+// FUNCIÓN AGREGAR AL CARRITO
+
+const agregarAlCarrito = (productId) => {
+
+    const itemInCart = carrito.find((producto) => producto.id === productId)
+        if (itemInCart) {
+            itemInCart.cantidad ++
+            showMensaje(itemInCart.nombre)
+        } else {
+            const {id, nombre, precio} = stockProductos.find( (producto) => producto.id === productId) 
+            const itemToCart = {
+            id,
+            nombre, 
+            precio, 
+            cantidad: 1
+        } 
+        carrito.push(itemToCart)
+        showMensaje(nombre)
     }
-}
-
-const restarCantidad = (id) => {
-    const item = stockProductos.find( (cantidad) => cantidad.id === id)
-
-    if (item){
-        item.cantidad -1
-    } else {
-        item.cantidad = 1;
-        restarCantidad.push(item);
-    }
-}
-
-
-// function agregarAlCarrito() {
-
-// }
-
-const agregarAlCarrito = (id) => {
-    const item = stockProductos.find( (producto) => producto.id === id)
-
-    if (item){
-        item.cantidad +1 ;
-
-    } else {
-
-        item.cantidad = 1;
-        carrito.push(item);
-
-    }   
-
-    carrito.push(item)
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     console.log(carrito)
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
+// TOASTIFY AGREGAR PRODUCTO
+
+const showMensaje = (nombre) => {
+
+    Toastify({
+        text: `Have added "${nombre}"`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: 'blue',
+        }
+    }).showToast()
+}
+
+
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
-    const indice = carrito.indexOf(item)
-    carrito.splice(indice, 1)
+    deletedMensaje(item.nombre)
+
+    item.cantidad -= 1
+    if (item.cantidad === 0){
+        const indice = carrito.indexOf(item)
+        carrito.splice(indice, 1)
+    }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
+}
+
+const deletedMensaje = (producto) => {
+    Toastify({
+        text: `"${producto}" has been deleted`,
+        duration: 2000,
+        gravity: 'bottom',
+        position: 'right',
+        style: {
+            background: 'red',
+        }
+    }).showToast()
 }
 
 const vaciarCarrito = () => {
+
     carrito.length = 0
-
     localStorage.setItem('carrito', JSON.stringify(carrito))
-
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
 
-btnVaciar.addEventListener('click', vaciarCarrito)
+btnVaciar.addEventListener('click', () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover the cart!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: 'red',
+        confirmButtonText: 'I agree',
+        cancelButtonText: 'Cancel'
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito ()
+            Toastify({
+                text: 'The cart has been deleted',
+                position: 'center',
+                gravity: 'center',
+                duration: 4000,
+                style:{
+                    background: 'red'
+                }
+            }).showToast ()
+        }
+      });
+})
+
 
 const renderCarrito = () => {
 
-    
-    
     carritoContenedor.innerHTML = ''
-
 
     carrito.forEach((item) => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
 
-
         div.innerHTML = ` 
-
-            <img src="${item.img}">
             <h3>${item.nombre}</h3>
-            <p>${item.descripcion}</p>
             <p>Precio: $${item.precio}</p>
             <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
             <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
-      
-                    `
-        
+            `
         carritoContenedor.append(div)
 
     })
 }
 
 const renderCantidad = () => {
-
-    contadorCarrito.innerText = carrito.length
+    contadorCarrito.innerText = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
 }
-
-//PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
-const renderProductos = () => {
-    contadorCantidades.innerText = cantidad.length
-    contadorCantidades.innerText = cantidad.length
-}
-
 //
-
 const renderTotal = () => {
     let total = 0
     carrito.forEach((producto) => {
-        total += producto.precio
+        total += producto.precio * producto.cantidad
     })
-
     precioTotal.innerText = total
 }
-
-
 
 if (carritoEnLS) {
     carrito = carritoEnLS
@@ -348,24 +355,25 @@ if (carritoEnLS) {
     carrito = []
 }
 
+fetch
 
 
-function spread(...parametros) {
-
-    console.log(parametros);
-}
-
-
-spread(1, 2, 3, 4, 5);
-
-
-
-
-
-
-
-
-
+//swal({
+//    title: "Are you sure?",
+//    text: "Once deleted, you will not be able to recover this imaginary file!",
+//    icon: "warning",
+//    buttons: true,    
+//    dangerMode: true,
+//  })
+//  .then((willDelete) => {
+//    if (willDelete) {
+//      swal("Poof! Your imaginary file has been deleted!", {
+//        icon: "success",
+//      });
+//    } else {
+//      swal("Your imaginary file is safe!");
+//    }
+//  });
 
 
 
