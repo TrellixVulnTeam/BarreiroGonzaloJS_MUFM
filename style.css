@@ -120,9 +120,9 @@ body {
 }
 
 #productos-container {
-    max-width: 1200px;
+    max-width: 85%;
     margin-bottom: 5%;
-    margin-left: 5%;
+    margin-left: 7%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;

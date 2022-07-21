@@ -1,9 +1,9 @@
-/* let usuario
+let usuario
 const usuarioLS = localStorage.getItem('user')
 if (usuarioLS) {
     usuario = usuarioLS
 }
-Swal.fire(`Welcome to Accesories's section ${usuario}`)
+Swal.fire(`Welcome to Men's section, ${usuario}. Choose your favourite accesories`)
 
 const compra = document.querySelector('#compra')
 compra.addEventListener('click', () => {
@@ -14,10 +14,21 @@ compra.addEventListener('click', () => {
         gravity: 'top',
         className: 'UkeBJJ',
         style: {
-            background: "linear-gradient(to right, #62C456 , #198754)",
+            background: "linear-gradient(to right, #383938 , #1A1A1A)",
           }
     }).showToast()
-}) */
+})
+
+/* REMOVER DATOS DEL STORAGE */
+const clearData = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem("nombre")
+    localStorage.removeItem("apellido")
+    localStorage.removeItem("numero")
+    localStorage.removeItem("mail") 
+    localStorage.removeItem('carrito') 
+    window.location.reload()
+}
 
 const stockProductos = [
     {
@@ -153,7 +164,6 @@ const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 stockProductos.forEach((producto) => {
     const div = document.createElement('div')
     div.classList.add('producto')
-
     div.innerHTML = `
             <img src="${producto.img}">
             <h3>${producto.nombre}</h3>
@@ -162,13 +172,10 @@ stockProductos.forEach((producto) => {
             <button onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
          `
         productosContainer.append(div)
-         
 })
 
 const agregarAlCarrito = (productId) => {
-
     const itemInCart = carrito.find((producto) => producto.id === productId)
-
         if (itemInCart) {
             itemInCart.cantidad ++
             showMensaje(itemInCart.nombre)
@@ -190,30 +197,6 @@ const agregarAlCarrito = (productId) => {
     renderCantidad()
     renderTotal()
 }
-
-
-//const agregarAlCarrito = (id) => {
-//    const item = stockProductos.find( (producto) => producto.id === id)
-//
-//    if (item){
-//        item.cantidad +1 ;
-//
-//    } else {
-//
-//        item.cantidad = 1;
-//        carrito.push(item);
-//
-//    }   
-//
-//    carrito.push(item)
-//
-//    localStorage.setItem('carrito', JSON.stringify(carrito))
-//
-//    console.log(carrito)
-//    renderCarrito()
-//    renderCantidad()
-//    renderTotal()
-//}
 
 const showMensaje = (nombre) => {
 
@@ -257,7 +240,6 @@ const deletedMensaje = (producto) => {
 }
 
 const vaciarCarrito = () => {
-
     carrito.length = 0
     localStorage.setItem('carrito', JSON.stringify(carrito))
     renderCarrito()
@@ -294,11 +276,9 @@ btnVaciar.addEventListener('click', () => {
 
 const renderCarrito = () => {
     carritoContenedor.innerHTML = ''
-
     carrito.forEach((item) => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
-
         div.innerHTML = ` 
             <h3>${item.nombre}</h3>
             <p>Precio: $${item.precio}</p>
@@ -306,7 +286,6 @@ const renderCarrito = () => {
             <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
             `
         carritoContenedor.append(div)
-
     })
 }
 
@@ -314,11 +293,6 @@ const renderCantidad = () => {
     contadorCarrito.innerText = carrito.reduce((acc, producto) => acc + producto.cantidad, 0)
 }
 
-//PRUEBA SUMADOR CANTIDADES DE PRODUCTOS
-//const renderProductos = () => {
-//    contadorCantidades.innerText = cantidad.length
-//
-//}
 const renderTotal = () => {
     let total = 0
     carrito.forEach((producto) => {

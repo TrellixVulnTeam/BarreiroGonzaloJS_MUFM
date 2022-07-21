@@ -19,15 +19,20 @@ compra.addEventListener('click', () => {
     }).showToast()
 })
 
+/* REMOVER DATOS DEL STORAGE */
 const clearData = () => {
     localStorage.removeItem('user')
+    localStorage.removeItem("nombre")
+    localStorage.removeItem("apellido")
+    localStorage.removeItem("numero")
+    localStorage.removeItem("mail") 
+    localStorage.removeItem('carrito') 
     window.location.reload()
 }
 
 document.querySelector("#clear-data").addEventListener('click', clearData)
 
 const stockProductos = [
-
     {
         "id": 1,
         "nombre": "Kingz - Gi - White",
@@ -110,7 +115,25 @@ const precioTotal = document.querySelector('#precioTotal')
 const btnVaciar = document.getElementById('vaciarCarrito')
 
 //const carrito = JSON.parse(localStorage.getItem('carrito')) || []
-const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
+const carritoEnLS = JSON.parse( localStorage.getItem('carrito') ) 
+
+//  FETCH   
+/* fetch('/stock.json')
+    .then((resp) => resp.json())
+    .then((data) => {
+        data.forEach((producto) => {
+            const div = document.createElement('div')
+            div.classList.add('producto')
+            div.innerHTML = `
+                    <img src="${producto.img}">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.descripcion}</p>
+                    <p class="precioProducto">Precio: $${producto.precio}</p>
+                    <button id="cart" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
+                 `
+                productosContainer.append(div) 
+        })
+    }) */
 
 // generar el DOM de todos los productos
 stockProductos.forEach((producto) => {
@@ -140,7 +163,7 @@ const agregarAlCarrito = (productId) => {
         cantidad: 1
     } 
     carrito.push(itemToCart)
-    showMensaje(nombre)
+    showMensaje(nombre, id)
     }
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -152,10 +175,10 @@ const agregarAlCarrito = (productId) => {
 
 // TOASTIFY AGREGAR PRODUCTO
 
-const showMensaje = (producto) => {
+const showMensaje = (nombre) => {
 
     Toastify({
-        text: `Have added "${producto}"`,
+        text: `Has been added "${nombre}"`,
         duration: 2000,
         gravity: 'bottom',
         position: 'right',

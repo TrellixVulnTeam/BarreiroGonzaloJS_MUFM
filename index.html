@@ -25,12 +25,22 @@
                 <li><a href="pages/accesories.html">Accesories</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
                 <li><img src="images/carrito-de-compras.png"></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito"></span></button></li>
-                <li><button id="clear-data" class="btn btn-dark">Logout</button></li>
+                <li><button id="clear-data" class="logout btn btn-dark">Logout</button></li>
             </ul>
         </div>
     </section>
 
     <h5 id="welcome"></h5>
+
+    <!-- pruebas -->
+    <h2>POKEAPI</h2>
+    <div    id="pokemon-container">
+        
+    </div>
+    <button id="anterior" class="btn btn-light">Anterior</button>
+    <button id="siguiente" class="btn btn-primary">Siguiente</button>
+
+    <div id="elem"></div>
     
     <header>
         <div class="container text-center">
@@ -67,15 +77,13 @@
             <h3 class="btn-warning text-dark">Your products</h3>
 <!--             <button id="carritoCerrar"><i class="fas fa-times-circle">0</i></button>-->
             <div id="carrito-contenedor">
-
                 <div class="productoEnCarrito">
                     
                 </div>
-
             </div>
             <p class="precioProducto  btn-warning text-dark">Total: $<span id="precioTotal"></span></p>
-            <button id="vaciarCarrito" class="boton-eliminar btn btn-danger">Empty cart</button>
-                                    
+            <button id="vaciarCarrito" class="boton-eliminar btn btn-danger">Empty cart</button>                     
+            <button id="comprar" class="boton-comprar btn btn-primary">Buy!</button>                     
         </div>
     </section>
 

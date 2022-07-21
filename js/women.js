@@ -19,8 +19,20 @@ compra.addEventListener('click', () => {
     }).showToast()
 })
 
-const stockProductos = [
+/* REMOVER DATOS DEL STORAGE */
+const clearData = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem("nombre")
+    localStorage.removeItem("apellido")
+    localStorage.removeItem("numero")
+    localStorage.removeItem("mail") 
+    localStorage.removeItem('carrito') 
+    window.location.reload()
+}
 
+document.querySelector("#clear-data").addEventListener('click', clearData)
+
+const stockProductos = [
 {
     "id": 7,
     "nombre": "Kingz - Gi - Black",
