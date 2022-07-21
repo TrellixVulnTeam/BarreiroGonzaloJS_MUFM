@@ -111,29 +111,8 @@ const carritoContenedor = document.querySelector('#carrito-contenedor')
 
 const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
-
 const btnVaciar = document.getElementById('vaciarCarrito')
-
-//const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') ) 
-
-//  FETCH   
-/* fetch('/stock.json')
-    .then((resp) => resp.json())
-    .then((data) => {
-        data.forEach((producto) => {
-            const div = document.createElement('div')
-            div.classList.add('producto')
-            div.innerHTML = `
-                    <img src="${producto.img}">
-                    <h3>${producto.nombre}</h3>
-                    <p>${producto.descripcion}</p>
-                    <p class="precioProducto">Precio: $${producto.precio}</p>
-                    <button id="cart" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
-                 `
-                productosContainer.append(div) 
-        })
-    }) */
 
 // generar el DOM de todos los productos
 stockProductos.forEach((producto) => {

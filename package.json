@@ -23,5 +23,63 @@
   },
   "devDependencies": {},
   "keywords": [],
-  "description": ""
+  "description": "",
+  
+    "messages": [],
+    "activationTimes": {
+      "codeLoadingTime": 859,
+      "activateCallTime": 5,
+      "activateResolvedTime": 0,
+      "activationReason": {
+        "startup": true,
+        "extensionId": {
+          "value": "ritwickdey.LiveServer",
+          "_lower": "ritwickdey.liveserver"
+        },
+        "activationEvent": "*"
+      }
+    },
+    "runtimeErrors": [
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      },
+      {
+        "name": "Error",
+        "message": "ENOENT: no such file or directory, open"
+      }
+    ]
+  
 }

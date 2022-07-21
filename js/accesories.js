@@ -29,6 +29,8 @@ const clearData = () => {
     localStorage.removeItem('carrito') 
     window.location.reload()
 }
+document.querySelector("#clear-data").addEventListener('click', clearData)
+
 
 const stockProductos = [
     {

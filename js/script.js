@@ -1,53 +1,3 @@
-const container = document.querySelector('#pokemon-container')
-const btnanterior = document.querySelector('#anterior')
-const btnsiguiente = document.querySelector('#siguiente')
-
-let id = 1
-const llamarpokemon = async () => {
-    const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    const data = await resp.json()
-
-    const {name, sprites: {front_default: img}} = data
-
-    container.innerHTML = `
-        <h4>${name}</h4>
-        <img src=${img} alt=${img}/>
-    `
-}
-
-btnsiguiente.addEventListener('click', () => {
-    id++
-
-    llamarpokemon()
-})
-btnanterior.addEventListener('click', () => {
-    if(id === 1) {return}{
-        id --
-        llamarpokemon()
-    }
-})
-
-llamarpokemon() 
-
-
-const url = 'https://pokeapi.co/api/v2/pokemon/20/'
-fetch(url)
-.then(response => response.json())
-.then(data => {
-    let element = document.getElementById('elem')
-    element.innerHTML = `<p>${data.name}</p>
-    <img src='${data.sprites.front_default}'>
-    `
-
-    console.log(data)
-})
-.catch(err => console.log(err))
-
-fetch('https://randomuser.me/api/')
-  .then(response => response.json())
-  .then(json => console.log(json))
-
-
 // LOCAL STORAGE
 let usuario
 const usuarioLS = localStorage.getItem('user')
@@ -89,9 +39,6 @@ Swal.fire({
       )}
   })
 
-
-
-
 //  TEST TOASTIFY
 const shop = document.querySelector('#shop')
 shop.addEventListener('click', () => {
@@ -109,43 +56,14 @@ shop.addEventListener('click', () => {
 
 const productosContainer = document.querySelector('#productos-container')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
-
 const contadorCarrito = document.querySelector('#contadorCarrito')
 const contadorCantidades = document.querySelector('#contador-cantidades')
 const precioTotal = document.querySelector('#precioTotal')
-
 const btnVaciar = document.getElementById('vaciarCarrito')
 const btnComprar = document.getElementById('comprar')
-
-//const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 
-
-
-/* let stock = []
-//  FETCH
-fetch('./stock.json')
-    .then((resp) => resp.json())
-    .then((data) => {
-        stock = data
-
-        data.forEach((producto) => {
-            const div = document.createElement('div')
-            div.classList.add('producto')
-            div.innerHTML = `
-                    <img src="${producto.img}">
-                    <h3>${producto.nombre}</h3>
-                    <p>${producto.descripcion}</p>
-                    <p class="precioProducto">Precio: $${producto.precio}</p>
-                    <button id="cart" onclick="agregarAlCarrito(${producto.id})" class="btn btn-primary"><strong>Add to cart</strong><i class="fas fa-shopping-cart"></i></button>
-                 `
-                productosContainer.append(div) 
-        })
-    })
- */
-
 // FUNCIÓN AGREGAR AL CARRITO
-
 const agregarAlCarrito = (productId) => {
 
     const itemInCart = carrito.find((producto) => producto.id === productId)
@@ -172,7 +90,6 @@ const agregarAlCarrito = (productId) => {
 }
 
 // TOASTIFY AGREGAR PRODUCTO
-
 const showMensaje = (nombre) => {
 
     Toastify({
@@ -185,7 +102,6 @@ const showMensaje = (nombre) => {
         }
     }).showToast()
 }
-
 
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
@@ -319,20 +235,3 @@ if (carritoEnLS) {
 } else {
     carrito = []
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

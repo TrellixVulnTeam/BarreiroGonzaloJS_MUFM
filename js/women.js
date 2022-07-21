@@ -85,16 +85,10 @@ const stockProductos = [
 
 const productosContainer = document.querySelector('#productos-container')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
-
 const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
-
 const btnVaciar = document.getElementById('vaciarCarrito')
-
-//const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
-
-
 
 // generar el DOM de todos los productos
 stockProductos.forEach((producto) => {

@@ -18,8 +18,8 @@ const clearData = () => {
     localStorage.removeItem("apellido")
     localStorage.removeItem("numero")
     localStorage.removeItem("mail")
+    localStorage.removeItem('carrito')
     window.location.reload()
 }
-
 document.querySelector("#clear-data").addEventListener('click', clearData)
 
