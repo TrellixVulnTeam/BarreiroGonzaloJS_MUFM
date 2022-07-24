@@ -4,7 +4,7 @@
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-sass --include-path scss scss/main.scss css/main.css",
+    "build-css": "node-sass --include-path scss style.scss style.css",
     "watch-css": "nodemon -e scss -x \"npm run build-css\""
   },
   "repository": {
@@ -19,67 +19,66 @@
   "homepage": "https://github.com/gonzalitoeze/BarreiroGonzaloJS#readme",
   "dependencies": {
     "luxon": "^3.0.1",
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.19",
     "sweetalert2": "^11.4.19"
   },
-  "devDependencies": {},
   "keywords": [],
-  "description": "",
-  
-    "messages": [],
-    "activationTimes": {
-      "codeLoadingTime": 859,
-      "activateCallTime": 5,
-      "activateResolvedTime": 0,
-      "activationReason": {
-        "startup": true,
-        "extensionId": {
-          "value": "ritwickdey.LiveServer",
-          "_lower": "ritwickdey.liveserver"
-        },
-        "activationEvent": "*"
-      }
+  "messages": [],
+  "activationTimes": {
+    "codeLoadingTime": 859,
+    "activateCallTime": 5,
+    "activateResolvedTime": 0,
+    "activationReason": {
+      "startup": true,
+      "extensionId": {
+        "value": "ritwickdey.LiveServer",
+        "_lower": "ritwickdey.liveserver"
+      },
+      "activationEvent": "*"
+    }
+  },
+  "runtimeErrors": [
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
     },
-    "runtimeErrors": [
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      },
-      {
-        "name": "Error",
-        "message": "ENOENT: no such file or directory, open"
-      }
-    ]
-  
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    },
+    {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, open"
+    }
+  ],
+  "description": ""
 }

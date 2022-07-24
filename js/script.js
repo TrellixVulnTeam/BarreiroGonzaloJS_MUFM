@@ -8,6 +8,26 @@ if (usuarioLS) {
     localStorage.setItem("user", usuario)
 }
 
+//test
+const carro = document.querySelector('#boton-carrito')
+carro.addEventListener('click', () => {
+    Toastify({
+        text: `Go to "Your products" to buy!`,
+        duration: 5000,
+        gravity: 'top',
+        className: 'UkeBJJ',
+        style: {
+            background: "linear-gradient(to right, lightblue , blue)",
+          }
+    }).showToast()
+})
+
+/* BOTON SWITCH */
+const btnSwitch = document.querySelector('#switch');
+btnSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('white');
+    btnSwitch.classList.toggle('active');
+});
 
 /* REMOVER DATOS DEL STORAGE */
 const clearData = () => {
@@ -66,7 +86,7 @@ const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 // FUNCIÓN AGREGAR AL CARRITO
 const agregarAlCarrito = (productId) => {
 
-    const itemInCart = carrito.find((producto) => producto.id === productId)
+    const itemInCart = stockProductos.find((producto) => producto.id === productId)
         if (itemInCart) {
             itemInCart.cantidad ++
             showMensaje(itemInCart.nombre)
@@ -207,7 +227,7 @@ const renderCarrito = () => {
             <h3>${item.nombre}</h3>
             <p>Precio: $${item.precio}</p>
             <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
-            <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
+            <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt"></i></button>
             `
         carritoContenedor.append(div)
 

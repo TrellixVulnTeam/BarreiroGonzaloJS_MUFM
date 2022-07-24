@@ -1,3 +1,10 @@
+/* BOTON SWITCH */
+const btnSwitch = document.querySelector('#switch');
+btnSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('white');
+    btnSwitch.classList.toggle('active');
+});
+
 function capturar() {
     let nombre = document.querySelector("#exampleInputName").value;
     let apellido = document.querySelector("#exampleInputSurname").value;

@@ -11,11 +11,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">   
     <link rel="stylesheet" href="../style.css">
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/29c05f597a.js" crossorigin="anonymous"></script>
     <script defer src="../js/accesories.js"></script>
     <script src="../assets/sweets/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="../assets/sweets/sweetalert2.css">
 </head>
-<body class="bg-dark text-white">
+<body>
     <section id="header">
         <a href="../index.html"><img src="../images/icno.webp" class="logo" alt="" width="150%" height="100px"></a>
         <div class="container-fluid">
@@ -23,8 +24,12 @@
                 <li><a href="men.html">Men's</a></li>
                 <li><a href="women.html">Women's</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><img src="../images/carrito-de-compras.png"></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button></li>
+                <li></a><button id="boton-carrito" class="btn btn-light"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button></li>
                 <li><button id="clear-data" class="btn btn-dark">Logout</button></li>
+                <button id="switch" class="switch">
+                    <span><i class="fa-solid fa-moon"></i></span>
+                    <span><i class="fa-solid fa-sun"></i></i></span>
+                </button>
             </ul>
         </div>
     </section>
@@ -32,7 +37,7 @@
     <h5 id="welcome"></h5>
     
     <header>
-        <div class="container text-center">
+        <div class="container encabezado">
             <h1 id="titulo" class="titulo">UKE BJJ</h1>
             <h4 class="subtitle">"The gentle art"</h4>
             <div id="tiempo" class="row"></div>
@@ -70,8 +75,9 @@
         </div>
     </section>
 
-    <!--    SECCIÓN FOOTER      -->
+    <div class="hr"></div>
 
+    <!--    SECCIÓN FOOTER      -->
     <footer class="section-p1">
         <div class="col">
             <img src="../images/icno.webp" alt="">

@@ -5,6 +5,13 @@ if (usuarioLS) {
 }
 Swal.fire(`Welcome to Men's section, ${usuario}. Choose your favourite accesories`)
 
+/* BOTON SWITCH */
+const btnSwitch = document.querySelector('#switch');
+btnSwitch.addEventListener('click', () => {
+    document.body.classList.toggle('white');
+    btnSwitch.classList.toggle('active');
+});
+
 const compra = document.querySelector('#compra')
 compra.addEventListener('click', () => {
 
@@ -285,7 +292,7 @@ const renderCarrito = () => {
             <h3>${item.nombre}</h3>
             <p>Precio: $${item.precio}</p>
             <p class="card-text text-dark">Cantidad: ${item.cantidad}<p>
-            <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt">Delete</i></button>
+            <button onclick="removerDelCarrito(${item.id})" class="btn btn-warning"><i class="fas fa-trash-alt"></i></button>
             `
         carritoContenedor.append(div)
     })
