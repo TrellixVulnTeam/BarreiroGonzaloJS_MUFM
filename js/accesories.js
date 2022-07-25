@@ -5,6 +5,20 @@ if (usuarioLS) {
 }
 Swal.fire(`Welcome to Men's section, ${usuario}. Choose your favourite accesories`)
 
+/* CARRITO */
+const carro = document.querySelector('#boton-carrito')
+carro.addEventListener('click', () => {
+    Toastify({
+        text: `Go to"Home" -> "Your products" to buy!`,
+        duration: 5000,
+        gravity: 'top',
+        className: 'UkeBJJ',
+        style: {
+            background: "linear-gradient(to right, lightblue , blue)",
+          }
+    }).showToast()
+})
+
 /* BOTON SWITCH */
 const btnSwitch = document.querySelector('#switch');
 btnSwitch.addEventListener('click', () => {
@@ -215,7 +229,7 @@ const showMensaje = (nombre) => {
         gravity: 'bottom',
         position: 'right',
         style: {
-            background: 'blue',
+            background: '#0d6efd',
         }
     }).showToast()
 }

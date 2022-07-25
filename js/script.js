@@ -11,7 +11,7 @@ if (usuarioLS) {
 const welcomeTitle = document.querySelector('#welcome')
 welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
 
-//test
+//CARRITO
 const carro = document.querySelector('#boton-carrito')
 carro.addEventListener('click', () => {
     Toastify({
