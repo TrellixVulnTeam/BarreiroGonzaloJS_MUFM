@@ -170,7 +170,7 @@ const deletedMensaje = (producto) => {
         gravity: 'bottom',
         position: 'right',
         style: {
-            background: 'red',
+            background: '#dc3545',
         }
     }).showToast()
 }
@@ -190,7 +190,7 @@ btnVaciar.addEventListener('click', () => {
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: 'red',
+        cancelButtonColor: '#dc3545',
         confirmButtonText: 'I agree',
         cancelButtonText: 'Cancel'
         
@@ -203,7 +203,7 @@ btnVaciar.addEventListener('click', () => {
                 gravity: 'center',
                 duration: 4000,
                 style:{
-                    background: 'red'
+                    background: '#dc3545'
                 }
             }).showToast ()
         }
