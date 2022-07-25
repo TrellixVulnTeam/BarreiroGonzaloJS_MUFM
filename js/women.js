@@ -216,7 +216,6 @@ const renderCarrito = () => {
         const div = document.createElement('div')
         div.classList.add('productoEnCarrito')
         div.innerHTML = ` 
-            <img src="${item.img}">
             <h3>${item.nombre}</h3>
             <p>${item.descripcion}</p>
             <p>Precio: $${item.precio}</p>

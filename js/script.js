@@ -8,6 +8,9 @@ if (usuarioLS) {
     localStorage.setItem("user", usuario)
 }
 
+const welcomeTitle = document.querySelector('#welcome')
+welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
+
 //test
 const carro = document.querySelector('#boton-carrito')
 carro.addEventListener('click', () => {
@@ -41,9 +44,6 @@ const clearData = () => {
 }
 document.querySelector("#clear-data").addEventListener('click', clearData)
 
-const welcomeTitle = document.querySelector("#welcome")
-welcomeTitle.innerText = `Hi, ${usuario}! Welcome to`
-
 // USO DE SWEETALERT2
 
 Swal.fire({
@@ -62,7 +62,6 @@ Swal.fire({
 //  TEST TOASTIFY
 const shop = document.querySelector('#shop')
 shop.addEventListener('click', () => {
-
     Toastify({
         text: 'Go to the upper menu and select your option!',
         duration: 5000,
@@ -189,25 +188,28 @@ btnVaciar.addEventListener('click', () => {
 
 btnComprar.addEventListener('click', () => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover the cart!",
-        icon: "warning",
+        title: "Ready to buy?",
+        text: "We wait your purchase",
+        icon: "",
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: 'red',
         confirmButtonText: 'Buy Now!',
-        cancelButtonText: 'Cancel'
         
       }).then((result) => {
         if (result.isConfirmed) {
-            vaciarCarrito ()
+            Swal.fire({
+                title: "THANKS FOR YOUR PURCHASE!",
+                text: "Enjoy it!",
+                icon: "success",
+            })
             Toastify({
-                text: 'The cart has been deleted',
+                text: 'Solded',
                 position: 'center',
                 gravity: 'center',
-                duration: 4000,
+                duration: 1500,
                 style:{
-                    background: 'red'
+                    background: 'green'
                 }
             }).showToast ()
         }
