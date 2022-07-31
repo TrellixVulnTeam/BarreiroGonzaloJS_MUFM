@@ -14,6 +14,17 @@ body {
     }
 }
 
+#contenedor {
+    body.white & {
+        color: black;
+    }
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 #header{
     display: flex;
     align-items: flex-end;

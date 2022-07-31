@@ -1,3 +1,77 @@
+window.addEventListener('load', () => {
+    let lon
+    let lat
+
+    let temperaturaValor = document.getElementById('temperatura-valor')
+    let temperaturaDescription = document.getElementById('temperatura-descripcion')
+    let presionDescripcion = document.getElementById('presion')
+    let humedad = document.getElementById('humedad')
+    
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition (position => {
+           /*  console.log(position.coords.latitude) */
+           lon = position.coords.longitude
+           lat = position.coords.latitude
+
+           const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=en&units=metric&appid=5ad7b3d7284520b80d02460ba8513c38` 
+           fetch(url)
+            .then( response => {return response.json()})
+            .then( data => {
+                let temp = Math.round(data.main.temp)
+                temperaturaValor.textContent = `${temp}°C`
+                
+                let desc = data.weather[0].main
+                temperaturaDescription.textContent = desc.toUpperCase()
+
+                ubicacion.textContent = data.name
+
+                let pres = Math.round(data.main.pressure)
+                presionDescripcion.textContent = `${pres}hPa`
+
+                let hum = data.main.humidity
+                humedad.textContent = `${hum}%`
+
+                console.log(data.weather[0].main)
+                switch (data.weather[0].main) {
+                    case 'Thunderstorm':
+                    iconoAnimado.src='animated/thunder.svg'
+                    console.log('TORMENTA');
+                    break;
+                    case 'Drizzle':
+                    iconoAnimado.src='animated/rainy-2.svg'
+                    console.log('LLOVIZNA');
+                    break;
+                    case 'Rain':
+                    iconoAnimado.src='animated/rainy-7.svg'
+                    console.log('LLUVIA');
+                    break;
+                    case 'Snow':
+                    iconoAnimado.src='animated/snowy-6.svg'
+                    console.log('NIEVE');
+                    break;                        
+                    case 'Clear':
+                    iconoAnimado.src='animated/day.svg'
+                    console.log('LIMPIO');
+                    break;
+                    case 'Atmosphere':
+                    iconoAnimado.src='animated/weather.svg'
+                    console.log('ATMOSFERA');
+                    break;  
+                    case 'Clouds':
+                    iconoAnimado.src='animated/cloudy-day-1.svg'
+                    console.log('NUBES');
+                    break;  
+                }
+                console.log(data)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        })
+    }
+})
+
+
 // LOCAL STORAGE
 let usuario
 const usuarioLS = localStorage.getItem('user')
